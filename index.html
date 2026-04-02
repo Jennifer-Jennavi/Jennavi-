@@ -1,1 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO: Title (58 chars) -->
+  <title>Jennavi | LinkedIn Growth Agency for Founders</title>
+
+  <!-- SEO: Meta Description (157 chars) -->
+  <meta name="description" content="Jennavi helps startup founders become LinkedIn authorities. 873% impression growth. Zero ad spend. Ghostwriting & content strategy, retainer-first.">
+
+  <!-- Open Graph (for LinkedIn sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jennavi.com/">
+  <meta property="og:title" content="Jennavi | LinkedIn Growth Agency for Founders">
+  <meta property="og:description" content="Stop being invisible. Jennavi turns expert founders into LinkedIn authorities through strategic ghostwriting and content management. 873% growth. Zero ad spend.">
+  <meta property="og:image" content="https://jennavi.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Jennavi">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jennavi | LinkedIn Growth Agency for Founders">
+  <meta name="twitter:description" content="Stop being invisible. 873% impression growth. Zero ad spend. Jennavi builds founder authority on LinkedIn.">
+  <meta name="twitter:image" content="https://jennavi.com/og-image.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://jennavi.com/">
+
+  <!-- Google Fonts: single combined call with font-display swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─────────────────────────────────────────
+       DESIGN TOKENS
+    ───────────────────────────────────────── */
+    :root {
+      --ink: #0A0A0A;
+      --ink-soft: #111111;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dim: rgba(201,168,76,0.18);
+      --gold-faint: rgba(201,168,76,0.06);
+      --ivory: #FAF3E0;
+      --ivory-dim: #F0E8CE;
+      --ivory-muted: rgba(250,243,224,0.6);
+      --ivory-ghost: rgba(250,243,224,0.35);
+      --muted: #888070;
+      --border: rgba(201,168,76,0.18);
+      --border-strong: rgba(201,168,76,0.42);
+      --radius: 0px;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* ─────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────── */
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--ivory);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─────────────────────────────────────────
+       TYPOGRAPHY UTILITIES
+    ───────────────────────────────────────── */
+    .display { font-family: 'Cormorant Garamond', serif; }
+    .mono    { font-family: 'DM Mono', monospace; }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ivory);
+      margin-bottom: 24px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-body {
+      font-size: 16px;
+      color: var(--ivory-muted);
+      line-height: 1.85;
+      max-width: 540px;
+    }
+
+    /* ─────────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    section {
+      padding: 120px 48px;
+      position: relative;
+    }
+
+    .h-rule {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-strong), transparent);
+      margin: 0;
+    }
+
+    /* ─────────────────────────────────────────
+       BUTTONS
+    ───────────────────────────────────────── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 16px 38px;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.22s var(--ease-out), transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold-light);
+      transform: translateX(-101%);
+      transition: transform 0.35s var(--ease-out);
+    }
+    .btn-primary:hover::before { transform: translateX(0); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.28); }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ivory);
+      font-size: 12.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.58;
+      transition: opacity 0.2s, gap 0.2s;
+    }
+    .btn-ghost::after { content: '→'; transition: transform 0.2s; }
+    .btn-ghost:hover { opacity: 1; gap: 12px; }
+    .btn-ghost:hover::after { transform: translateX(3px); }
+
+    /* ─────────────────────────────────────────
+       NAVIGATION (sticky, scroll-aware)
+    ───────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      padding: 22px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.4s, padding 0.4s, border-color 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 16px 48px;
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-logo:hover { opacity: 0.8; }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--ivory);
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+    .nav-links a.active { opacity: 1; color: var(--gold); }
+
+    .nav-cta-link {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      padding: 10px 22px;
+      opacity: 1 !important;
+      transition: background 0.22s, color 0.22s !important;
+      font-weight: 500 !important;
+    }
+    .nav-cta-link:hover {
+      background: var(--gold) !important;
+      color: var(--ink) !important;
+    }
+
+    /* Mobile menu toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--ivory);
+      transition: transform 0.3s, opacity 0.3s, width 0.3s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 0; right: 0;
+      width: min(320px, 85vw);
+      height: 100vh;
+      background: rgba(10,10,10,0.99);
+      border-left: 1px solid var(--border);
+      z-index: 890;
+      padding: 100px 40px 48px;
+      transform: translateX(100%);
+      transition: transform 0.4s var(--ease-out);
+      backdrop-filter: blur(20px);
+    }
+    .nav-drawer.open { transform: translateX(0); }
+    .nav-drawer ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .nav-drawer ul li a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--ivory);
+      opacity: 0.7;
+      display: block;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+      transition: opacity 0.2s, color 0.2s, padding-left 0.2s;
+    }
+    .nav-drawer ul li a:hover { opacity: 1; color: var(--gold); padding-left: 8px; }
+    .nav-drawer .drawer-cta { margin-top: 32px; }
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 880;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .nav-overlay.open { opacity: 1; }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 140px 48px 100px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 65% at 72% 48%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 45% at 18% 82%, rgba(201,168,76,0.04) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 30% at 50% 100%, rgba(201,168,76,0.03) 0%, transparent 60%);
+    }
+
+    /* Decorative vertical grid line */
+    .hero-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: calc(50% + 40px);
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 5%, var(--border) 30%, var(--border) 70%, transparent 95%);
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out) 0.1s forwards;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(50px, 5.8vw, 82px);
+      font-weight: 300;
+      line-height: 1.06;
+      color: var(--ivory);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out) 0.22s forwards;
+    }
+    .hero-headline em { font-style: italic; color: var(--gold); }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--ivory-muted);
+      line-height: 1.85;
+      margin-bottom: 48px;
+      max-width: 460px;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out) 0.36s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out) 0.5s forwards;
+    }
+
+    /* Hero right card */
+    .hero-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border);
+      padding: 44px;
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out) 0.6s forwards;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 40px; right: 40px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .hero-card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      opacity: 0.75;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 32px;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+      transition: color 0.2s;
+    }
+
+    .stat-item:hover .stat-number { color: var(--gold-light); }
+
+    .stat-label {
+      font-size: 12px;
+      color: rgba(250,243,224,0.45);
+      letter-spacing: 0.04em;
+      line-height: 1.45;
+    }
+
+    .hero-proof {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15.5px;
+      font-style: italic;
+      color: rgba(250,243,224,0.5);
+      line-height: 1.65;
+    }
+    .hero-proof strong { color: var(--ivory); font-style: normal; font-weight: 400; }
+
+    /* ─────────────────────────────────────────
+       TICKER
+    ───────────────────────────────────────── */
+    .ticker {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 15px 0;
+      position: relative;
+    }
+    .ticker::before, .ticker::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      z-index: 2;
+    }
+    .ticker::before { left: 0; background: linear-gradient(to right, var(--ink), transparent); }
+    .ticker::after  { right: 0; background: linear-gradient(to left, var(--ink), transparent); }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 35s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+
+    .ticker-item {
+      white-space: nowrap;
+      padding: 0 44px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .ticker-item::after { content: '◆'; color: var(--gold); font-size: 7px; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─────────────────────────────────────────
+       PROBLEM SECTION
+    ───────────────────────────────────────── */
+    .problem-section {
+      background: rgba(201,168,76,0.025);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 88px;
+      align-items: start;
+    }
+
+    .problem-list {
+      list-style: none;
+      margin-top: 44px;
+    }
+    .problem-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--ivory-muted);
+      line-height: 1.65;
+      transition: color 0.2s;
+    }
+    .problem-list li:hover { color: rgba(250,243,224,0.85); }
+    .problem-list li::before {
+      content: '—';
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      margin-top: -3px;
+      flex-shrink: 0;
+    }
+
+    .problem-right { padding-top: 80px; }
+
+    .callout-box {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid var(--border-strong);
+      padding: 52px 48px;
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .callout-box::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 130px;
+      color: var(--gold);
+      position: absolute;
+      top: -16px; left: 30px;
+      line-height: 1;
+      opacity: 0.22;
+      pointer-events: none;
+    }
+    .callout-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 25px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ivory);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+    .callout-attr {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .difference-box {
+      padding: 36px 40px;
+      border: 1px solid var(--border);
+      background: rgba(201,168,76,0.025);
+    }
+    .difference-box p {
+      font-size: 14.5px;
+      color: var(--ivory-muted);
+      line-height: 1.85;
+    }
+    .difference-box strong {
+      color: var(--ivory);
+      font-weight: 400;
+    }
+
+    /* ─────────────────────────────────────────
+       SERVICES
+    ───────────────────────────────────────── */
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 64px;
+      align-items: end;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+    }
+    /* Third card (coming soon) spans full width */
+    .service-card-coming {
+      grid-column: 1 / -1;
+    }
+
+    .service-card {
+      background: var(--ink);
+      padding: 52px 44px;
+      position: relative;
+      transition: background 0.35s var(--ease-out);
+    }
+    .service-card:hover { background: rgba(201,168,76,0.04); }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 44px; right: 44px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-strong), transparent);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.4s var(--ease-out);
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      margin-bottom: 32px;
+      opacity: 0.55;
+    }
+    .service-icon { font-size: 26px; margin-bottom: 24px; display: block; }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ivory);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .service-desc {
+      font-size: 14px;
+      color: rgba(250,243,224,0.52);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .service-includes {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .service-includes li {
+      padding: 4px 0 4px 16px;
+      position: relative;
+      font-size: 13px;
+      color: rgba(250,243,224,0.5);
+      line-height: 1.6;
+    }
+    .service-includes li::before {
+      content: '·';
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+    }
+    .service-from {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .service-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 300;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .service-price span {
+      font-size: 15px;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border-strong);
+      padding-bottom: 4px;
+      transition: gap 0.22s, opacity 0.22s;
+    }
+    .service-link:hover { gap: 14px; opacity: 0.8; }
+
+    /* ─────────────────────────────────────────
+       PACKAGES TABLE
+    ───────────────────────────────────────── */
+    .packages-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 64px;
+      align-items: end;
+    }
+
+    /* Responsive table wrapper */
+    .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    .package-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+    }
+    .package-table th {
+      background: rgba(201,168,76,0.07);
+      padding: 20px 28px;
+      text-align: left;
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border);
+      font-weight: 400;
+      white-space: nowrap;
+    }
+    .package-table td {
+      padding: 24px 28px;
+      font-size: 14px;
+      color: var(--ivory-muted);
+      border-bottom: 1px solid rgba(201,168,76,0.07);
+      vertical-align: top;
+    }
+    .package-table tr:last-child td { border-bottom: none; }
+
+    /* Most popular row highlight */
+    .row-featured td {
+      background: rgba(201,168,76,0.04);
+      border-top: 1px solid var(--border-strong);
+      border-bottom: 1px solid var(--border-strong);
+    }
+    .row-featured td:first-child { border-left: 2px solid var(--gold); }
+
+    .pkg-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--ivory);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .pkg-tag {
+      font-size: 10px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.08em;
+      display: block;
+    }
+    .pkg-badge {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+    }
+    .pkg-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .pkg-price small {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+    .pkg-posts {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      color: var(--ivory);
+    }
+    .pkg-includes {
+      list-style: none;
+    }
+    .pkg-includes li {
+      padding: 3px 0 3px 16px;
+      position: relative;
+      font-size: 13px;
+    }
+    .pkg-includes li::before {
+      content: '·';
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+    }
+    .pkg-for { font-size: 13px; color: var(--muted); }
+
+    .guarantee {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid var(--border);
+      padding: 32px 44px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-top: 44px;
+    }
+    .guarantee-icon { font-size: 30px; flex-shrink: 0; margin-top: 2px; }
+    .guarantee-text { font-size: 14px; color: var(--ivory-muted); line-height: 1.75; }
+    .guarantee-text strong {
+      color: var(--ivory);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 6px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+    }
+
+    /* ─────────────────────────────────────────
+       FOUNDER SECTION
+    ───────────────────────────────────────── */
+    .founder-section {
+      background: rgba(201,168,76,0.025);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.45fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .founder-visual { position: relative; }
+
+    .founder-frame {
+      border: 1px solid var(--border-strong);
+      padding: 4px;
+      display: block;
+    }
+    .founder-img-placeholder {
+      background: rgba(201,168,76,0.06);
+      aspect-ratio: 3 / 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: var(--muted);
+      border: 1px solid rgba(201,168,76,0.1);
+      text-align: center;
+    }
+    .founder-img-placeholder span {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    .founder-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 18px 22px;
+      text-align: center;
+    }
+    .founder-badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 600;
+      display: block;
+      line-height: 1;
+    }
+    .founder-badge-text {
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      display: block;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .founder-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 50px;
+      font-weight: 300;
+      color: var(--ivory);
+      margin-bottom: 4px;
+      line-height: 1.1;
+    }
+    .founder-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+    }
+    .founder-bio {
+      font-size: 16px;
+      color: var(--ivory-muted);
+      line-height: 1.88;
+      margin-bottom: 28px;
+    }
+    .founder-bio strong { color: var(--ivory); font-weight: 400; }
+
+    .proof-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .proof-pill {
+      background: rgba(201,168,76,0.09);
+      border: 1px solid var(--border-strong);
+      padding: 7px 15px;
+      font-size: 11.5px;
+      color: var(--gold);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.07em;
+      transition: background 0.22s;
+    }
+    .proof-pill:hover { background: rgba(201,168,76,0.16); }
+
+    /* ─────────────────────────────────────────
+       JENNAVI DIFFERENCE GRID
+    ───────────────────────────────────────── */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      margin-top: 64px;
+    }
+
+    .diff-item {
+      background: var(--ink);
+      padding: 52px 48px;
+      transition: background 0.35s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .diff-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(201,168,76,0.03);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .diff-item:hover::before { opacity: 1; }
+
+    .diff-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      margin-bottom: 20px;
+      opacity: 0.45;
+    }
+    .diff-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      color: var(--ivory);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .diff-body {
+      font-size: 14px;
+      color: rgba(250,243,224,0.52);
+      line-height: 1.8;
+    }
+
+    /* ─────────────────────────────────────────
+       BIG NUMBERS / STATS BAR
+    ───────────────────────────────────────── */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+    }
+    .stat-bar-item {
+      padding: 52px 40px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .stat-bar-item:last-child { border-right: none; }
+    .stat-bar-item:hover { background: rgba(201,168,76,0.03); }
+
+    .stat-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .stat-bar-label {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      font-family: 'DM Mono', monospace;
+      text-transform: uppercase;
+    }
+
+    /* ─────────────────────────────────────────
+       PROCESS
+    ───────────────────────────────────────── */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+      margin-top: 64px;
+    }
+
+    .process-step {
+      padding: 52px 36px;
+      border-right: 1px solid var(--border);
+      position: relative;
+      transition: background 0.3s;
+    }
+    .process-step:last-child { border-right: none; }
+    .process-step:hover { background: rgba(201,168,76,0.025); }
+
+    .process-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 68px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.13);
+      line-height: 1;
+      margin-bottom: 20px;
+      display: block;
+      transition: color 0.3s;
+    }
+    .process-step:hover .process-num { color: rgba(201,168,76,0.22); }
+
+    .process-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 23px;
+      color: var(--ivory);
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+    .process-body {
+      font-size: 13.5px;
+      color: rgba(250,243,224,0.5);
+      line-height: 1.75;
+    }
+    .process-arrow {
+      position: absolute;
+      top: 52px;
+      right: -14px;
+      width: 28px;
+      height: 28px;
+      background: var(--ink);
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--gold);
+      z-index: 2;
+      transition: background 0.2s;
+    }
+    .process-step:hover .process-arrow { background: rgba(201,168,76,0.12); }
+
+    /* ─────────────────────────────────────────
+       TESTIMONIAL
+    ───────────────────────────────────────── */
+    .testimonial-section {
+      text-align: center;
+      background: rgba(201,168,76,0.025);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .testimonial-inner { max-width: 800px; margin: 0 auto; }
+
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 90px;
+      color: var(--gold);
+      line-height: 0.5;
+      display: block;
+      margin-bottom: 24px;
+      opacity: 0.4;
+    }
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ivory);
+      line-height: 1.55;
+      margin-bottom: 36px;
+    }
+    .testimonial-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 20px;
+      opacity: 0.4;
+    }
+    .testimonial-source {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.65;
+    }
+
+    /* ─────────────────────────────────────────
+       CTA SECTION
+    ───────────────────────────────────────── */
+    .cta-section {
+      background: rgba(201,168,76,0.035);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .cta-inner { max-width: 680px; margin: 0 auto; }
+
+    .cta-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5vw, 66px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ivory);
+      margin-bottom: 24px;
+    }
+    .cta-headline em { font-style: italic; color: var(--gold); }
+    .cta-sub {
+      font-size: 16px;
+      color: rgba(250,243,224,0.52);
+      line-height: 1.85;
+      margin-bottom: 48px;
+    }
+    .cta-options {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-note {
+      margin-top: 24px;
+      font-size: 11.5px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.1em;
+    }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    footer {
+      padding: 72px 48px 48px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 56px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 18px;
+    }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(250,243,224,0.35);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .footer-contact {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 2.1;
+    }
+    .footer-contact a { transition: color 0.2s; }
+    .footer-contact a:hover { color: var(--gold); }
+
+    .footer-col-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      opacity: 0.65;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a {
+      color: rgba(250,243,224,0.42);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 52px auto 0;
+      padding-top: 28px;
+      border-top: 1px solid rgba(201,168,76,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.05em;
+    }
+    .footer-mission {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(201,168,76,0.42);
+    }
+
+    /* ─────────────────────────────────────────
+       SCROLL ANIMATIONS
+    ───────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* staggered children */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+    }
+    .stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0s; }
+    .stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.1s; }
+    .stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.2s; }
+    .stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.3s; }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card-coming { grid-column: auto; }
+    }
+
+    @media (max-width: 900px) {
+      .nav { padding: 18px 24px; }
+      .nav.scrolled { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-drawer { display: block; }
+      .nav-overlay { display: block; }
+
+      section { padding: 80px 24px; }
+      .hero { padding: 110px 24px 70px; }
+
+      .hero-content,
+      .problem-grid,
+      .services-header,
+      .packages-header,
+      .founder-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .hero-right { display: none; }
+      .founder-visual { display: none; }
+      .problem-right { padding-top: 0; }
+
+      .diff-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .stat-bar-item:nth-child(2) { border-right: none; }
+      .stat-bar-item:nth-child(3) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
+      .stat-bar-item:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .process-grid,
+      .stat-grid,
+      .stats-bar { grid-template-columns: 1fr; }
+      .stat-bar-item { border-right: none !important; border-top: 1px solid var(--border); }
+      .stat-bar-item:first-child { border-top: none; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero-headline { font-size: 44px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .packages-header { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo" aria-label="Jennavi home">Jennavi</a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#founder">The Founder</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li>
+        <a href="#contact" class="nav-cta-link" aria-label="Book a free strategy call">
+          Book a Call
+        </a>
+      </li>
+    </ul>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+  <!-- Mobile drawer -->
+  <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
+    <ul role="list">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#founder">The Founder</a></li>
+      <li><a href="#process">How It Works</a></li>
+    </ul>
+    <div class="drawer-cta" style="margin-top:32px;">
+      <a href="#contact" class="btn-primary" aria-label="Book a free strategy call">
+        <span>Book a Free Strategy Call</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ═══════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════ -->
+    <header class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-line" aria-hidden="true"></div>
+
+      <div class="hero-content container">
+        <!-- Left: Value proposition -->
+        <div class="hero-left">
+          <p class="hero-eyebrow" aria-label="Agency type">Digital Growth Agency for Founders</p>
+
+          <h1 class="hero-headline">
+            You built something<br>
+            <em>worth being seen.</em><br>
+            Start being seen.
+          </h1>
+
+          <p class="hero-sub">
+            Jennavi helps startup founders, coaches and consultants stop being invisible online. Through LinkedIn strategy, ghostwriting and social media management, we turn great businesses into visible authorities that clients find, trust and buy from.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary" aria-label="Book a free strategy call with Jennifer">
+              <span>Book a Free Strategy Call</span>
+            </a>
+            <a href="#services" class="btn-ghost" aria-label="See what Jennavi offers">See What We Do</a>
+          </div>
+        </div>
+
+        <!-- Right: Live proof card -->
+        <aside class="hero-right" aria-label="Live proof of concept statistics">
+          <div class="hero-card">
+            <p class="hero-card-label">// Live proof of concept</p>
+            <div class="stat-grid" role="list">
+              <div class="stat-item" role="listitem">
+                <div class="stat-number display" aria-label="873 percent">873%</div>
+                <div class="stat-label">Impression growth achieved organically</div>
+              </div>
+              <div class="stat-item" role="listitem">
+                <div class="stat-number display" aria-label="5500 plus">5.5k+</div>
+                <div class="stat-label">LinkedIn followers. Zero paid ads. Ever.</div>
+              </div>
+              <div class="stat-item" role="listitem">
+                <div class="stat-number display" aria-label="106000 plus">106k+</div>
+                <div class="stat-label">Total organic impressions reached</div>
+              </div>
+              <div class="stat-item" role="listitem">
+                <div class="stat-number display" aria-label="zero dollars">$0</div>
+                <div class="stat-label">Ad spend. Every number earned through strategy.</div>
+              </div>
+            </div>
+            <p class="hero-proof">
+              <em>"These are not case study numbers. These are Jennifer's own LinkedIn results. The strategy she sells is the strategy she lives."</em>
+            </p>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════
+         TICKER
+    ═══════════════════════════════════════ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item">LinkedIn Ghostwriting</span>
+        <span class="ticker-item">Content Strategy</span>
+        <span class="ticker-item">Social Media Management</span>
+        <span class="ticker-item">Founder Visibility</span>
+        <span class="ticker-item">Authority Building</span>
+        <span class="ticker-item">Organic Growth</span>
+        <span class="ticker-item">Retainer-First Model</span>
+        <span class="ticker-item">International Clients</span>
+        <span class="ticker-item">LinkedIn Ghostwriting</span>
+        <span class="ticker-item">Content Strategy</span>
+        <span class="ticker-item">Social Media Management</span>
+        <span class="ticker-item">Founder Visibility</span>
+        <span class="ticker-item">Authority Building</span>
+        <span class="ticker-item">Organic Growth</span>
+        <span class="ticker-item">Retainer-First Model</span>
+        <span class="ticker-item">International Clients</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         PROBLEM SECTION
+    ═══════════════════════════════════════ -->
+    <section class="problem-section" aria-labelledby="problem-heading">
+      <div class="container">
+        <div class="problem-grid">
+          <div class="problem-left">
+            <p class="eyebrow">The Problem We Solve</p>
+            <h2 class="section-title reveal" id="problem-heading">
+              Your expertise is real.<br>
+              Your <em>visibility</em> is not.
+            </h2>
+            <ul class="problem-list stagger" aria-label="Common problems founders face on LinkedIn">
+              <li>You post on LinkedIn and hear silence back. The content feels right. The results do not come.</li>
+              <li>Founders with less experience than you are landing clients you should have. They are not better. They are simply more visible.</li>
+              <li>Your profile reads like a resume when it should read like a pitch. Every visitor leaves without reaching out.</li>
+              <li>You know LinkedIn should be working. You cannot figure out why it is not.</li>
+              <li>You are too busy building the business to build the brand that attracts clients to the business.</li>
+            </ul>
+          </div>
+
+          <div class="problem-right">
+            <blockquote class="callout-box reveal">
+              <p class="callout-text">
+                "The founders winning on LinkedIn are not more talented than you. They have one thing you do not yet have. A strategy that makes the right person feel found every time they land on their profile."
+              </p>
+              <cite class="callout-attr">— Jennifer Omaliko, Founder, Jennavi</cite>
+            </blockquote>
+
+            <div class="difference-box reveal">
+              <p class="eyebrow" style="margin-bottom:16px;">The Jennavi Difference</p>
+              <p>
+                We do not sell content for the sake of content. We sell <strong>visibility, authority and business outcomes.</strong> Every post, every strategy, every service is anchored to one question: will this bring the right client one step closer to reaching out?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SERVICES
+    ═══════════════════════════════════════ -->
+    <section id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="services-header">
+          <div>
+            <p class="eyebrow">What We Do</p>
+            <h2 class="section-title reveal" id="services-heading">
+              Two services.<br>
+              <em>Delivered with precision.</em>
+            </h2>
+          </div>
+          <p class="section-body reveal">
+            Jennavi is a retainer-first agency. We do not take one-off projects. We build long-term relationships where our work compounds month after month. Two services done exceptionally beat eight services done poorly.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 01 -->
+          <article class="service-card reveal" aria-labelledby="service-1-title">
+            <p class="service-number">01 / 02</p>
+            <span class="service-icon" aria-hidden="true">✦</span>
+            <h3 class="service-name display" id="service-1-title">LinkedIn Content &amp; Growth Strategy</h3>
+            <p class="service-desc">
+              Jennifer writes and manages your entire LinkedIn presence end to end. Post writing, content strategy, growth tactics, engagement engineering and monthly performance reviews. Everything written in your authentic voice. You show up as a thought leader. Jennifer makes sure it converts.
+            </p>
+            <ul class="service-includes" aria-label="Service inclusions">
+              <li>Posts written in your authentic voice, every time</li>
+              <li>Monthly strategy session and content direction</li>
+              <li>Hashtag and engagement strategy built in</li>
+              <li>Monthly performance report with real numbers</li>
+              <li>Unlimited revisions within scope</li>
+            </ul>
+            <p class="service-from">Starting from</p>
+            <p class="service-price display">$300<span> / month</span></p>
+            <a href="#packages" class="service-link" aria-label="View all LinkedIn packages">View All Packages →</a>
+          </article>
+
+          <!-- Service 02 -->
+          <article class="service-card reveal" aria-labelledby="service-2-title">
+            <p class="service-number">02 / 02</p>
+            <span class="service-icon" aria-hidden="true">◈</span>
+            <h3 class="service-name display" id="service-2-title">Social Media Management</h3>
+            <p class="service-desc">
+              Full management of your presence across two to four platforms. Content scheduling, caption writing, community engagement and monthly reporting. Available as a standalone service or as a powerful add-on to your LinkedIn retainer.
+            </p>
+            <ul class="service-includes" aria-label="Service inclusions">
+              <li>Scheduling and posting across your chosen platforms</li>
+              <li>Caption writing aligned with your brand voice</li>
+              <li>Community engagement management</li>
+              <li>Basic Canva graphics included</li>
+              <li>Monthly analytics report</li>
+            </ul>
+            <p class="service-from">Starting from</p>
+            <p class="service-price display">$200<span> / month add-on</span></p>
+            <a href="#packages" class="service-link" aria-label="View all social media packages">View All Packages →</a>
+          </article>
+
+          <!-- Coming soon -->
+          <div class="service-card service-card-coming" style="background:rgba(201,168,76,0.025); opacity:0.7;">
+            <p class="service-number" style="opacity:0.35;">Coming in Phase Two</p>
+            <h3 class="service-name display" style="font-size:20px; margin-bottom:12px;">
+              Newsletter Writing · Blog Content · Thought Leadership Articles
+            </h3>
+            <p class="service-desc" style="max-width:600px;">
+              These services grow naturally from existing client relationships and activate for retained clients building an email audience or long-form content strategy alongside their social presence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         PACKAGES TABLE
+    ═══════════════════════════════════════ -->
+    <section id="packages" aria-labelledby="packages-heading" style="padding-top:0;">
+      <div class="container">
+        <div class="packages-header">
+          <div>
+            <p class="eyebrow">LinkedIn Packages</p>
+            <h2 class="section-title reveal" id="packages-heading">
+              Every package is a<br>
+              <em>monthly retainer.</em>
+            </h2>
+          </div>
+          <p class="section-body reveal">
+            Predictable pricing. Consistent delivery. You know exactly what you are getting and exactly what it costs. No surprises. First month paid upfront before work begins.
+          </p>
+        </div>
+
+        <div class="table-wrapper reveal">
+          <table class="package-table" role="table" aria-label="LinkedIn retainer packages comparison">
+            <thead>
+              <tr>
+                <th scope="col">Package</th>
+                <th scope="col">Posts Per Week</th>
+                <th scope="col">Monthly Price</th>
+                <th scope="col">Includes</th>
+                <th scope="col">Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Starter -->
+              <tr>
+                <td>
+                  <span class="pkg-name display">Starter</span>
+                  <span class="pkg-tag">/ Entry LinkedIn</span>
+                </td>
+                <td><span class="pkg-posts display">3</span> <small style="font-size:12px;color:var(--muted);">posts/wk</small></td>
+                <td>
+                  <p class="pkg-price display">$300<small>per month</small></p>
+                </td>
+                <td>
+                  <ul class="pkg-includes" aria-label="Starter package inclusions">
+                    <li>3 LinkedIn posts per week</li>
+                    <li>Written in your voice</li>
+                    <li>Hashtag strategy</li>
+                    <li>Monthly performance report</li>
+                  </ul>
+                </td>
+                <td class="pkg-for">Founders beginning their LinkedIn presence</td>
+              </tr>
+
+              <!-- Growth — MOST POPULAR -->
+              <tr class="row-featured" aria-label="Most popular package">
+                <td>
+                  <span class="pkg-name display">Growth</span>
+                  <span class="pkg-tag">/ Most Popular</span>
+                  <span class="pkg-badge" aria-label="Recommended package">Recommended</span>
+                </td>
+                <td><span class="pkg-posts display">4</span> <small style="font-size:12px;color:var(--muted);">posts/wk</small></td>
+                <td>
+                  <p class="pkg-price display">$500<small>per month</small></p>
+                </td>
+                <td>
+                  <ul class="pkg-includes" aria-label="Growth package inclusions">
+                    <li>4 LinkedIn posts per week</li>
+                    <li>Monthly strategy session</li>
+                    <li>Engagement guidance</li>
+                    <li>Full performance report</li>
+                    <li>Unlimited revisions</li>
+                  </ul>
+                </td>
+                <td class="pkg-for">Founders building serious authority</td>
+              </tr>
+
+              <!-- Authority -->
+              <tr>
+                <td>
+                  <span class="pkg-name display">Authority</span>
+                  <span class="pkg-tag">/ Full Service</span>
+                </td>
+                <td><span class="pkg-posts display">5</span> <small style="font-size:12px;color:var(--muted);">posts/wk</small></td>
+                <td>
+                  <p class="pkg-price display">$700<small>per month</small></p>
+                </td>
+                <td>
+                  <ul class="pkg-includes" aria-label="Authority package inclusions">
+                    <li>5 LinkedIn posts per week</li>
+                    <li>Full strategy + engagement support</li>
+                    <li>Profile audit and optimisation</li>
+                    <li>Growth tactics and DM strategy</li>
+                    <li>Weekly check-in and direction</li>
+                  </ul>
+                </td>
+                <td class="pkg-for">Founders targeting 10,000+ followers and consistent inbound</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="guarantee reveal" role="note" aria-label="Retainer commitment information">
+          <span class="guarantee-icon" aria-hidden="true">⟳</span>
+          <div class="guarantee-text">
+            <strong>The Retainer Commitment</strong>
+            First month paid upfront before work begins. From month two, payment is due on the 1st of each month before content is delivered. This structure ensures you get consistent high-quality work and Jennavi maintains the operational stability to deliver it. No payment, no work. No exceptions. This is what a professional relationship looks like.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOUNDER SECTION
+    ═══════════════════════════════════════ -->
+    <section id="founder" class="founder-section" aria-labelledby="founder-heading">
+      <div class="container">
+        <div class="founder-grid">
+          <aside class="founder-visual" aria-hidden="true">
+            <div class="founder-frame">
+              <div class="founder-img-placeholder" role="img" aria-label="Portrait of Jennifer Mmesoma Omaliko, Founder and CEO of Jennavi">
+                Jennifer Omaliko<br>Founder &amp; CEO
+                <span>[ Photo ]</span>
+              </div>
+            </div>
+            <div class="founder-badge" aria-hidden="true">
+              <span class="founder-badge-num display">21</span>
+              <span class="founder-badge-text">Building globally<br>from Nigeria</span>
+            </div>
+          </aside>
+
+          <div class="founder-content">
+            <p class="eyebrow">Meet The Founder</p>
+            <h2 class="founder-name display reveal" id="founder-heading">Jennifer Mmesoma Omaliko</h2>
+            <p class="founder-title">Founder &amp; CEO · LinkedIn Content Strategist · Ghostwriter</p>
+
+            <p class="founder-bio reveal">
+              Jennifer is a <strong>21-year-old LinkedIn Content and Growth Strategist</strong> based in Kano, Nigeria, building an international agency from scratch and documenting every step of it publicly.
+            </p>
+            <p class="founder-bio reveal">
+              She grew her personal LinkedIn from under 500 to over 5,500 followers organically, with <strong>873% impression growth and over 106,000 total organic impressions</strong>. Zero paid ads. Zero shortcuts. The strategy she sells for founders is the exact strategy she uses herself.
+            </p>
+            <p class="founder-bio reveal">
+              Jennifer is completing her degree at Ahmadu Bello University while building Jennavi as a globally competitive remote services company with active international clients across the US, UK, Australia and Pakistan. Her lived experience as a young Nigerian woman building a global business from Kano is not a backstory. <strong>It is Jennavi's most powerful proof of concept.</strong>
+            </p>
+
+            <ul class="proof-pills stagger" aria-label="Jennifer's key achievements">
+              <li class="proof-pill">873% Impression Growth</li>
+              <li class="proof-pill">5,500+ Followers</li>
+              <li class="proof-pill">106k+ Organic Impressions</li>
+              <li class="proof-pill">Zero Paid Ads</li>
+              <li class="proof-pill">International Clients</li>
+              <li class="proof-pill">First Class Academic Record</li>
+            </ul>
+
+            <a href="#contact" class="btn-primary" aria-label="Book a call to work directly with Jennifer">
+              <span>Work With Jennifer Directly</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         JENNAVI DIFFERENCE
+    ═══════════════════════════════════════ -->
+    <section aria-labelledby="difference-heading">
+      <div class="container">
+        <div>
+          <p class="eyebrow">Why Jennavi</p>
+          <h2 class="section-title reveal" id="difference-heading">
+            Not a freelancer.<br>
+            Not a generic agency.<br>
+            <em>Something different entirely.</em>
+          </h2>
+        </div>
+
+        <div class="diff-grid stagger">
+          <article class="diff-item">
+            <p class="diff-num">01</p>
+            <h3 class="diff-title display">Built-In Cultural Intelligence</h3>
+            <p class="diff-body">Jennifer's identity as a young Igbo Nigerian woman builds instant cultural trust with diaspora founders that no Western agency can replicate. She understands your journey, your voice and your world from the inside. That trust cannot be purchased or faked.</p>
+          </article>
+          <article class="diff-item">
+            <p class="diff-num">02</p>
+            <h3 class="diff-title display">Revenue Outcomes, Not Vanity Metrics</h3>
+            <p class="diff-body">Every service at Jennavi is anchored to one question: will this bring a paying client one step closer? We do not celebrate impressions. We celebrate inquiries, discovery calls and closed retainers. Your revenue growth is the only metric that matters.</p>
+          </article>
+          <article class="diff-item">
+            <p class="diff-num">03</p>
+            <h3 class="diff-title display">Founder-to-Founder Energy</h3>
+            <p class="diff-body">Jennifer is building her own global company while helping founders build theirs. She is not teaching theory. She is sharing what is working right now on her own LinkedIn and her clients'. That credibility is earned daily, not claimed once.</p>
+          </article>
+          <article class="diff-item">
+            <p class="diff-num">04</p>
+            <h3 class="diff-title display">Your Live Proof of Concept</h3>
+            <p class="diff-body">5,500 followers built from under 500. 873% impression growth. 106,000 organic impressions. No paid ads. Jennifer's own LinkedIn profile is the most honest portfolio page Jennavi could have. Every number is verifiable. Every result is real.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         BIG NUMBERS
+    ═══════════════════════════════════════ -->
+    <section aria-label="Key performance statistics" style="padding-top:0;">
+      <div class="container">
+        <div class="stats-bar stagger" role="list">
+          <div class="stat-bar-item" role="listitem">
+            <span class="stat-big display" aria-label="873 percent">873%</span>
+            <span class="stat-bar-label">Impression Growth</span>
+          </div>
+          <div class="stat-bar-item" role="listitem">
+            <span class="stat-big display" aria-label="5500 plus">5.5k+</span>
+            <span class="stat-bar-label">LinkedIn Followers Built</span>
+          </div>
+          <div class="stat-bar-item" role="listitem">
+            <span class="stat-big display" aria-label="106000 plus">106k+</span>
+            <span class="stat-bar-label">Organic Impressions</span>
+          </div>
+          <div class="stat-bar-item" role="listitem">
+            <span class="stat-big display" aria-label="zero dollars">$0</span>
+            <span class="stat-bar-label">Spent on Advertising</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         HOW IT WORKS / PROCESS
+    ═══════════════════════════════════════ -->
+    <section id="process" aria-labelledby="process-heading">
+      <div class="container">
+        <p class="eyebrow">How It Works</p>
+        <h2 class="section-title reveal" id="process-heading">
+          From invisible to<br>
+          <em>inevitable.</em>
+        </h2>
+        <p class="section-body reveal" style="margin-bottom:0;">Four steps. Clear process. No ambiguity about what happens next.</p>
+
+        <div class="process-grid stagger" role="list">
+          <article class="process-step" role="listitem">
+            <span class="process-num display" aria-hidden="true">01</span>
+            <h3 class="process-title display">Discovery Call</h3>
+            <p class="process-body">30 minutes. No pitch. Jennifer studies your LinkedIn before the call and arrives with specific observations about what is working against you. You leave with clarity regardless of what you decide next.</p>
+            <div class="process-arrow" aria-hidden="true">→</div>
+          </article>
+          <article class="process-step" role="listitem">
+            <span class="process-num display" aria-hidden="true">02</span>
+            <h3 class="process-title display">Strategy &amp; Onboarding</h3>
+            <p class="process-body">You complete a detailed onboarding form covering your voice, goals, audience and brand. Jennifer builds a content strategy specifically for your situation. We sign the agreement. Work begins.</p>
+            <div class="process-arrow" aria-hidden="true">→</div>
+          </article>
+          <article class="process-step" role="listitem">
+            <span class="process-num display" aria-hidden="true">03</span>
+            <h3 class="process-title display">Delivery &amp; Iteration</h3>
+            <p class="process-body">Content is delivered via Google Docs for your review and approval. Revisions handled within 48 hours. Monthly performance reports delivered on the last Friday of every month with real numbers and next-month direction.</p>
+            <div class="process-arrow" aria-hidden="true">→</div>
+          </article>
+          <article class="process-step" role="listitem">
+            <span class="process-num display" aria-hidden="true">04</span>
+            <h3 class="process-title display">Growth &amp; Compounding</h3>
+            <p class="process-body">This is where LinkedIn starts working the way it was supposed to. Impressions climb. Profile visits increase. The right people start reaching out to you. The mechanism compounds every month you stay consistent.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         TESTIMONIAL
+    ═══════════════════════════════════════ -->
+    <section class="testimonial-section" aria-labelledby="testimonial-heading">
+      <div class="container">
+        <div class="testimonial-inner">
+          <span class="quote-mark display" aria-hidden="true">"</span>
+          <blockquote>
+            <p class="testimonial-text display" id="testimonial-heading">
+              Jennifer did more research on me before our first conversation than anyone who had ever pitched me. The proposal she sent felt like it was built in a room where I was the only person in it.
+            </p>
+          </blockquote>
+          <div class="testimonial-divider" aria-hidden="true"></div>
+          <cite class="testimonial-source">Founder · Healthcare Sector · Australia</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA
+    ═══════════════════════════════════════ -->
+    <section id="contact" class="cta-section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-inner">
+          <p class="eyebrow" style="justify-content:center;">Ready to Stop Being Invisible</p>
+          <h2 class="cta-headline display reveal" id="cta-heading">
+            Your expertise deserves<br>
+            <em>to be found.</em>
+          </h2>
+          <p class="cta-sub reveal">
+            Book a free 30-minute strategy call. Jennifer will review your LinkedIn before the call and arrive with specific, honest observations about what is quietly working against you. No generic advice. No pitch. Just clarity.
+          </p>
+          <div class="cta-options reveal">
+            <a
+              href="https://calendly.com/omalikojennifermmesoma/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+              aria-label="Book your free 30-minute LinkedIn strategy call on Calendly"
+            >
+              <span>Book Your Free Strategy Call</span>
+            </a>
+            <a
+              href="mailto:omalikojennifermmesoma@gmail.com"
+              class="btn-ghost"
+              aria-label="Send Jennifer an email instead"
+            >Send an Email Instead</a>
+          </div>
+          <p class="cta-note">// Jennavi takes a limited number of retained clients each month. Availability is not guaranteed.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo" aria-label="Jennavi home">Jennavi</a>
+        <p class="footer-tagline">"Navigate your career. Unlock global opportunities. From learning to earning."</p>
+        <address class="footer-contact" style="font-style:normal;">
+          <a href="mailto:omalikojennifermmesoma@gmail.com">omalikojennifermmesoma@gmail.com</a><br>
+          <a href="tel:+2349031237643">+234 903 123 7643</a><br>
+          Kano, Nigeria · Global Remote
+        </address>
+      </div>
+
+      <nav aria-label="Services footer links">
+        <p class="footer-col-title">Services</p>
+        <ul class="footer-links" role="list">
+          <li><a href="#services">LinkedIn Strategy</a></li>
+          <li><a href="#services">Content Ghostwriting</a></li>
+          <li><a href="#services">Social Media Management</a></li>
+          <li><a href="#packages">View All Packages</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Company footer links">
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links" role="list">
+          <li><a href="#founder">About Jennifer</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#contact">Book a Call</a></li>
+          <li>
+            <a href="https://linkedin.com/in/jennifer-omaliko-2b4238244" target="_blank" rel="noopener noreferrer" aria-label="Jennifer's LinkedIn profile (opens in new tab)">
+              LinkedIn ↗
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="footer-col-title">The Jennavi Standard</p>
+        <ul style="list-style:none;">
+          <li style="margin-bottom:12px; font-size:13px; color:rgba(250,243,224,0.38); line-height:1.65;">Retainer-first. Revenue-focused. Results documented.</li>
+          <li style="margin-bottom:12px; font-size:13px; color:rgba(250,243,224,0.38); line-height:1.65;">Every deliverable reviewed before it reaches you.</li>
+          <li style="font-size:13px; color:rgba(250,243,224,0.38); line-height:1.65;">Service agreements signed before work begins. Always.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Jennavi · Jennifer Mmesoma Omaliko · All Rights Reserved</p>
+      <span class="footer-mission display">"I will not be outworked. I will not be outsmarted. I will never stop building."</span>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+    // ── NAV: scroll-aware state ──────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── NAV: active link on scroll ───────────────────────
+    const sections = document.querySelectorAll('section[id], header');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === '#' + id) a.classList.add('active');
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+
+    document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
+
+    // ── MOBILE MENU ──────────────────────────────────────
+    const toggle   = document.getElementById('navToggle');
+    const drawer   = document.getElementById('navDrawer');
+    const overlay  = document.getElementById('navOverlay');
+
+    function openMenu() {
+      toggle.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      toggle.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+      toggle.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    overlay.addEventListener('click', closeMenu);
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // ── SCROLL REVEAL ────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .stagger').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // ── COUNTER ANIMATION for big stats ─────────────────
+    function animateCount(el) {
+      const text = el.textContent.trim();
+      const isPercent = text.includes('%');
+      const isK     = text.includes('k+') || text.includes('k');
+      const isDollar = text.includes('$');
+      const raw = parseFloat(text.replace(/[^0-9.]/g, ''));
+      if (isNaN(raw) || raw === 0) return;
+
+      const duration = 1200;
+      const start = performance.now();
+
+      function update(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const current = raw * eased;
+
+        let display;
+        if (isDollar && raw === 0) {
+          display = '$0';
+        } else if (isK) {
+          display = (current / 1).toFixed(1) + 'k+';
+          if (raw >= 100) display = Math.round(current) + 'k+';
+        } else if (isPercent) {
+          display = Math.round(current) + '%';
+        } else {
+          display = '$' + Math.round(current);
+        }
+
+        el.textContent = display;
+        if (t < 1) requestAnimationFrame(update);
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.stat-big').forEach(animateCount);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stats-bar').forEach(el => counterObserver.observe(el));
+
+    // ── ESCAPE key closes mobile menu ────────────────────
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  </script>
+</body>
+</html>
 
