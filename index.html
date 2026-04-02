@@ -165,8 +165,12 @@
       position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
       pointer-events: none;
-      z-index: 9999;
+      z-index: 9998; /* below any interactive elements */
+      user-select: none;
     }
+
+    /* Ensure all links and buttons are always clickable above the grain */
+    a, button { position: relative; z-index: 9999; cursor: pointer; }
 
     img { display:block; max-width:100%; }
     a   { color:inherit; text-decoration:none; }
@@ -838,18 +842,26 @@
     .pricing-card .card-cta {
       display: block;
       text-align: center;
-      padding: 12px 20px;
+      padding: 14px 20px;
       font-family: 'DM Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 500;
+      font-weight: 600;
       border: 1px solid var(--gold-border-s);
       color: var(--gold);
-      transition: background 0.22s, color 0.22s;
+      transition: background 0.22s, color 0.22s, transform 0.18s, box-shadow 0.18s;
       margin-top: auto;
+      cursor: pointer;
+      text-decoration: none;
     }
-    .pricing-card .card-cta:hover,
+    .pricing-card .card-cta:hover {
+      background: var(--gold);
+      color: var(--onyx);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212,175,55,0.3);
+    }
     .pricing-card.featured .card-cta {
       background: var(--gold);
       color: var(--onyx);
@@ -857,6 +869,8 @@
     }
     .pricing-card.featured .card-cta:hover {
       background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(212,175,55,0.35);
     }
 
     /* ══════════════════════════════════════════════
@@ -901,12 +915,17 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      transition: background 0.3s, border-color 0.3s, transform 0.22s;
+      transition: background 0.3s, border-color 0.3s, transform 0.22s, box-shadow 0.22s;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
     }
     .cta-tile:hover {
-      background: rgba(212,175,55,0.05);
-      border-color: var(--gold-border-s);
-      transform: translateY(-3px);
+      background: rgba(212,175,55,0.07);
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(212,175,55,0.15);
     }
     .cta-tile-icon {
       font-size: 24px;
@@ -1264,11 +1283,23 @@
       color: var(--ivory-muted);
       display: flex;
       align-items: center;
-      gap: 8px;
-      transition: color 0.2s;
+      gap: 10px;
+      transition: color 0.2s, gap 0.2s;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 4px 0;
     }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-links .link-icon { font-size: 16px; flex-shrink: 0; }
+    .footer-links a:hover {
+      color: var(--gold);
+      gap: 14px;
+    }
+    .footer-links a:hover .link-icon { transform: scale(1.15); }
+    .footer-links .link-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
 
     .footer-bottom {
       max-width: 1200px;
@@ -1607,10 +1638,10 @@
               <li>Strategy gap analysis report</li>
               <li>Actionable 30-day roadmap</li>
             </ul>
-            <a href="https://calendly.com/omalikojennifermmesoma/30min"
+            <a href="https://wa.me/2349031237643?text=Hi%20Jennifer!%20I%27m%20interested%20in%20the%20Taster%20Profile%20Audit%20(%24100).%20Can%20we%20talk%3F"
                target="_blank" rel="noopener noreferrer"
                class="card-cta"
-               aria-label="Book a call to start with the Taster audit">
+               aria-label="WhatsApp Jennifer to get the Taster audit">
               Get Started →
             </a>
           </article>
@@ -1630,10 +1661,10 @@
               <li>Posts written in your authentic voice</li>
               <li>Unlimited revisions within scope</li>
             </ul>
-            <a href="https://calendly.com/omalikojennifermmesoma/30min"
+            <a href="https://wa.me/2349031237643?text=Hi%20Jennifer!%20I%27m%20interested%20in%20the%20Starter%20retainer%20(%24200%2Fmo).%20Can%20we%20talk%3F"
                target="_blank" rel="noopener noreferrer"
                class="card-cta"
-               aria-label="Book a call to begin the Starter retainer">
+               aria-label="WhatsApp Jennifer to begin the Starter retainer">
               Get Started →
             </a>
           </article>
@@ -1654,10 +1685,10 @@
               <li>Hashtag and engagement strategy</li>
               <li>Unlimited revisions</li>
             </ul>
-            <a href="https://calendly.com/omalikojennifermmesoma/30min"
+            <a href="https://wa.me/2349031237643?text=Hi%20Jennifer!%20I%27m%20interested%20in%20the%20Growth%20retainer%20(%24400%2Fmo).%20Can%20we%20talk%3F"
                target="_blank" rel="noopener noreferrer"
                class="card-cta"
-               aria-label="Book a call to begin the Growth retainer">
+               aria-label="WhatsApp Jennifer to begin the Growth retainer">
               Start Growing →
             </a>
           </article>
@@ -1678,10 +1709,10 @@
               <li>DM strategy and engagement tactics</li>
               <li>Monthly deep-dive analytics report</li>
             </ul>
-            <a href="https://calendly.com/omalikojennifermmesoma/30min"
+            <a href="https://wa.me/2349031237643?text=Hi%20Jennifer!%20I%27m%20interested%20in%20the%20Authority%20retainer%20(%24600%2Fmo).%20Can%20we%20talk%3F"
                target="_blank" rel="noopener noreferrer"
                class="card-cta"
-               aria-label="Book a call to begin the Authority retainer">
+               aria-label="WhatsApp Jennifer to begin the Authority retainer">
               Get Started →
             </a>
           </article>
@@ -1703,10 +1734,10 @@
               <li>Dedicated growth roadmap</li>
               <li>Exclusive access to new frameworks first</li>
             </ul>
-            <a href="https://calendly.com/omalikojennifermmesoma/30min"
+            <a href="https://wa.me/2349031237643?text=Hi%20Jennifer!%20I%27m%20interested%20in%20the%20VIP%20package%20(%24800%2Fmo).%20Can%20we%20talk%3F"
                target="_blank" rel="noopener noreferrer"
                class="card-cta"
-               aria-label="Apply for the VIP package">
+               aria-label="WhatsApp Jennifer to apply for VIP">
               Apply for VIP →
             </a>
           </article>
@@ -1959,15 +1990,13 @@
         <p class="footer-col-title">Direct Contact</p>
         <ul class="footer-links" role="list">
           <li>
-            <a href="mailto:omalikojennifermmesoma@gmail.com"
-               aria-label="Email Jennifer personally">
-              <span class="link-icon" aria-hidden="true">✉️</span> omalikojennifermmesoma@gmail.com
+            <a href="/cdn-cgi/l/email-protection#f7989a969b9e9c989d9299999e9192859a9a9284989a96b7909a969e9bd994989a" aria-label="Email Jennifer personally">
+              <span class="link-icon" aria-hidden="true">✉️</span> <span class="__cf_email__" data-cfemail="abc4c6cac7c2c0c4c1cec5c5c2cdced9c6c6ced8c4c6caebccc6cac2c785c8c4c6">[email&#160;protected]</span>
             </a>
           </li>
           <li>
-            <a href="mailto:jennavi.global@gmail.com"
-               aria-label="Email Jennavi agency">
-              <span class="link-icon" aria-hidden="true">🏢</span> jennavi.global@gmail.com
+            <a href="/cdn-cgi/l/email-protection#204a454e4e4156490e474c4f42414c60474d41494c0e434f4d" aria-label="Email Jennavi agency">
+              <span class="link-icon" aria-hidden="true">🏢</span> <span class="__cf_email__" data-cfemail="aec4cbc0c0cfd8c780c9c2c1cccfc2eec9c3cfc7c280cdc1c3">[email&#160;protected]</span>
             </a>
           </li>
           <li>
@@ -2054,7 +2083,7 @@
   <!-- ═══════════════════════════════════════
        JAVASCRIPT
   ═══════════════════════════════════════ -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Scroll-aware nav ────────────────────────────────
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
@@ -2128,15 +2157,4 @@
     // Store final values
     document.querySelectorAll('.stat-num').forEach(el => { el.dataset.final = el.textContent; });
 
-    const counterObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.stat-num').forEach(animateCount);
-          counterObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.stats-bar').forEach(el => counterObs.observe(el));
-  </script>
-</body>
-</html>
+    const c
