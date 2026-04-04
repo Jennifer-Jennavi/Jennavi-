@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -369,15 +373,18 @@
     .testimonial-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold-border-s); cursor: pointer; transition: background 0.3s, transform 0.3s; border: none; padding: 0; }
     .testimonial-dot.active { background: var(--gold); transform: scale(1.3); }
 
-    /* INSIGHTS SECTION */
+    /* INSIGHTS SECTION - DYNAMIC BLOG FEED */
     .insights-section {
       background: var(--onyx-card);
       border-bottom: 1px solid var(--gold-border);
-      text-align: center;
     }
     .insights-container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
+    }
+    .insights-header {
+      text-align: center;
+      margin-bottom: 60px;
     }
     .insights-eyebrow {
       font-family: 'DM Mono', monospace;
@@ -406,46 +413,82 @@
       letter-spacing: -0.02em;
       color: var(--gold);
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       line-height: 1.2;
     }
     .insights-subhead {
       font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--ivory-muted);
+    }
+    .posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .post-item {
+      border-bottom: 1px solid var(--gold-border);
+      padding-bottom: 40px;
+    }
+    .post-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .post-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .post-title {
+      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 700;
+      color: var(--ivory);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .post-title a {
+      color: var(--ivory);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .post-title a:hover {
+      color: var(--gold);
+    }
+    .post-excerpt {
+      font-family: 'DM Sans', 'Montserrat', sans-serif;
+      font-size: 15px;
+      color: var(--ivory-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .post-read-more {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.2s ease;
+    }
+    .post-read-more:hover {
+      gap: 14px;
+    }
+    .no-posts {
+      text-align: center;
+      padding: 60px 20px;
+      font-family: 'Playfair Display', serif;
       font-size: 20px;
       font-style: italic;
       color: var(--ivory-muted);
-      margin-bottom: 32px;
-    }
-    .insights-subtext {
-      font-size: 17px;
-      color: var(--ivory-muted);
-      line-height: 1.85;
-      max-width: 650px;
-      margin: 0 auto 40px auto;
-    }
-    .insights-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 14px 32px;
-      background: transparent;
-      border: 1.5px solid var(--gold);
-      color: var(--gold);
-      cursor: pointer;
-      transition: all 0.25s ease;
-      text-decoration: none;
-      border-radius: 2px;
-    }
-    .insights-btn:hover {
-      background: var(--gold);
-      color: var(--onyx);
-      transform: translateY(-2px);
-      gap: 16px;
     }
 
     /* FOOTER */
@@ -504,7 +547,6 @@
       .footer-grid { grid-template-columns: 1fr; gap: 48px; }
       .founder-visual { display: none; }
       .hero-badge { left: 50%; transform: translateX(-50%); bottom: 16px; }
-      .insights-headline { font-size: 32px; }
     }
     @media (max-width: 640px) {
       .pricing-grid { grid-template-columns: 1fr; }
@@ -514,8 +556,6 @@
       .stat-item { border-right: none !important; border-top: 1px solid var(--gold-border); }
       .stat-item:first-child { border-top: none; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .insights-headline { font-size: 28px; }
-      .insights-subhead { font-size: 18px; }
     }
 
     /* FIX: Makes ONLY the 3 specified elements clickable on mobile */
@@ -539,7 +579,7 @@
       <li><a href="#services-section">Services</a></li>
       <li><a href="#founder-section">Jennifer</a></li>
       <li><a href="#testimonial-section">Proof</a></li>
-      <li><a href="/2026/04/04/why-your-linkedin-is-active-but-clients-are-not-coming.html">Insights</a></li>
+      <li><a href="#insights">Insights</a></li>
       <li><a href="#booking-section" class="nav-cta" aria-label="Book a strategy call">Book a Call</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -552,7 +592,7 @@
       <li><a href="#services-section">Services</a></li>
       <li><a href="#founder-section">Jennifer</a></li>
       <li><a href="#testimonial-section">Proof</a></li>
-      <li><a href="/2026/04/04/why-your-linkedin-is-active-but-clients-are-not-coming.html">Insights</a></li>
+      <li><a href="#insights">Insights</a></li>
       <li><a href="#booking-section">Book a Call</a></li>
     </ul>
   </nav>
@@ -940,13 +980,33 @@
       </div>
     </section>
 
-    <!-- INSIGHTS SECTION - UPDATED WITH CORRECT LINK -->
+    <!-- INSIGHTS SECTION - DYNAMIC BLOG FEED -->
     <section id="insights" class="insights-section">
       <div class="container insights-container">
-        <div class="insights-eyebrow">Latest Insight</div>
-        <h2 class="insights-headline">Why Your LinkedIn Is Active But Your Clients Are Not Coming</h2>
-        <p class="insights-subhead">And exactly what to do about it.</p>
-        <a href="/2026/04/04/why-your-linkedin-is-active-but-clients-are-not-coming.html" class="insights-btn">READ THE FULL BREAKDOWN →</a>
+        <div class="insights-header">
+          <div class="insights-eyebrow">Latest Insights</div>
+          <h2 class="insights-headline">The Visible Founder</h2>
+          <p class="insights-subhead">Strategic breakdowns on authority, visibility, and revenue</p>
+        </div>
+
+        <div class="posts-list">
+          {% for post in site.posts %}
+            <article class="post-item">
+              <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+              <h3 class="post-title">
+                <a href="{{ post.url }}" aria-label="Read {{ post.title }}">{{ post.title }}</a>
+              </h3>
+              <div class="post-excerpt">
+                {{ post.excerpt | strip_html | truncatewords: 25 }}
+              </div>
+              <a href="{{ post.url }}" class="post-read-more">Read Full Post →</a>
+            </article>
+          {% else %}
+            <div class="no-posts">
+              <p>No posts yet. Check back soon for insights on founder visibility and LinkedIn strategy.</p>
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </section>
   </main>
