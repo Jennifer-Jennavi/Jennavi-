@@ -200,8 +200,8 @@
     }
     .nav.scrolled { background: rgba(10,10,10,0.97); backdrop-filter: blur(14px); padding: 14px 48px; border-bottom-color: var(--gold-border); }
     .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
-    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
-    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; transition: opacity 0.2s, color 0.2s; }
+    .nav-links { display: flex; gap: 48px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; transition: opacity 0.2s, color 0.2s; padding: 0 8px; }
     .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold); }
     .nav-links .nav-cta { background: var(--gold); color: var(--onyx) !important; opacity: 1 !important; padding: 10px 22px; font-weight: 600; transition: background 0.2s !important; }
     .nav-links .nav-cta:hover { background: var(--gold-light) !important; }
@@ -401,13 +401,20 @@
     }
     .insights-headline {
       font-family: 'Cormorant Garamond', 'Playfair Display', serif;
-      font-size: clamp(42px, 5vw, 72px);
+      font-size: clamp(38px, 5vw, 58px);
       font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--gold);
       text-transform: uppercase;
-      margin-bottom: 28px;
-      line-height: 1.1;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .insights-subhead {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: var(--ivory-muted);
+      margin-bottom: 32px;
     }
     .insights-subtext {
       font-size: 17px;
@@ -468,7 +475,11 @@
     body.js-ready .stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.24s; }
     body.js-ready .stagger.visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.32s; }
 
-    @media (max-width: 1100px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } .cta-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 1100px) { 
+      .pricing-grid { grid-template-columns: repeat(3, 1fr); } 
+      .cta-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { gap: 32px; }
+    }
     @media (max-width: 900px) {
       .nav { padding: 18px 24px; }
       .nav.scrolled { padding: 13px 24px; }
@@ -493,7 +504,7 @@
       .footer-grid { grid-template-columns: 1fr; gap: 48px; }
       .founder-visual { display: none; }
       .hero-badge { left: 50%; transform: translateX(-50%); bottom: 16px; }
-      .insights-headline { font-size: 36px; }
+      .insights-headline { font-size: 32px; }
     }
     @media (max-width: 640px) {
       .pricing-grid { grid-template-columns: 1fr; }
@@ -503,7 +514,8 @@
       .stat-item { border-right: none !important; border-top: 1px solid var(--gold-border); }
       .stat-item:first-child { border-top: none; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .insights-headline { font-size: 32px; }
+      .insights-headline { font-size: 28px; }
+      .insights-subhead { font-size: 18px; }
     }
 
     /* FIX: Makes ONLY the 3 specified elements clickable on mobile */
@@ -525,11 +537,9 @@
     <ul class="nav-links" role="list">
       <li><a href="#why-section">Why Jennavi</a></li>
       <li><a href="#services-section">Services</a></li>
-      <li><a href="#pricing-section">Pricing</a></li>
       <li><a href="#founder-section">Jennifer</a></li>
-      <li><a href="#process-section">Process</a></li>
       <li><a href="#testimonial-section">Proof</a></li>
-      <li><a href="#insights">Insights</a></li>
+      <li><a href="/2026/04/04/why-your-linkedin-is-active-but-clients-are-not-coming.html">Insights</a></li>
       <li><a href="#booking-section" class="nav-cta" aria-label="Book a strategy call">Book a Call</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -540,11 +550,9 @@
     <ul role="list">
       <li><a href="#why-section">Why Jennavi</a></li>
       <li><a href="#services-section">Services</a></li>
-      <li><a href="#pricing-section">Pricing</a></li>
       <li><a href="#founder-section">Jennifer</a></li>
-      <li><a href="#process-section">Process</a></li>
       <li><a href="#testimonial-section">Proof</a></li>
-      <li><a href="#insights">Insights</a></li>
+      <li><a href="/2026/04/04/why-your-linkedin-is-active-but-clients-are-not-coming.html">Insights</a></li>
       <li><a href="#booking-section">Book a Call</a></li>
     </ul>
   </nav>
@@ -858,7 +866,7 @@
       </div>
     </section>
 
-    <!-- PROCESS -->
+    <!-- PROCESS SECTION (KEPT BUT NOT IN NAV) -->
     <section id="process-section" aria-labelledby="process-heading">
       <div class="container">
         <p class="eyebrow">How It Works</p>
@@ -932,13 +940,13 @@
       </div>
     </section>
 
-    <!-- INSIGHTS SECTION -->
+    <!-- INSIGHTS SECTION - UPDATED WITH NEW POST -->
     <section id="insights" class="insights-section">
       <div class="container insights-container">
-        <div class="insights-eyebrow">Exclusive</div>
-        <h2 class="insights-headline">THE 873% GROWTH BLUEPRINT</h2>
-        <p class="insights-subtext">Why most founders stay invisible. A surgical breakdown of the gap between effort and revenue.</p>
-        <a href="/Jennavi/2026/04/03/growth-blueprint.html" class="insights-btn">READ THE FULL BREAKDOWN →</a>
+        <div class="insights-eyebrow">Latest Insight</div>
+        <h2 class="insights-headline">Why Your LinkedIn Is Active But Your Clients Are Not Coming</h2>
+        <p class="insights-subhead">And exactly what to do about it.</p>
+        <a href="/2026/04/04/why-your-linkedin-is-active-but-clients-are-not-coming.html" class="insights-btn">READ THE FULL BREAKDOWN →</a>
       </div>
     </section>
   </main>
