@@ -1,0 +1,6 @@
+# Allow all crawlers full access
+User-agent: *
+Allow: /
+
+# Tell Google where to find your sitemap
+Sitemap: https://jennifer-jennavi.github.io/Jennavi/sitemap.xml
