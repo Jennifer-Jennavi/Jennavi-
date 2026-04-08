@@ -202,7 +202,7 @@
           {
             "@type": "Question",
             "name": "Will the content sound like me?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every Jennavi engagement begins with a comprehensive onboarding process to capture your voice, tone, industry expertise and business goals. Every post is written to sound like you on your best day. Jennifer's ghostwriting methodology is voice-first, not template-driven."}
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every Jennavi engagement begins with a comprehensive onboarding process to capture your voice, tone, industry expertise and business goals. Every post is written to sound like you on your best day. Jennifer's ghostwriting methodology is voice first, not template driven."}
           },
           {
             "@type": "Question",
@@ -244,25 +244,42 @@
     body { background:var(--onyx); color:var(--ivory); font-family:'Montserrat',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
     body::after { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events:none !important; z-index:9998; user-select:none; }
 
-    /* GLOBAL MOBILE CLICK FIX */
+    /* GLOBAL MOBILE CLICK FIX - SUPER STRONG VERSION (from working DeepSeek) */
     a, button, .btn, .card-cta, .cta-tile, .book-btn, .founder-name a,
     .hero-actions a, .nav-links a, .nav-drawer a, .footer-links a,
     .pricing-card .card-cta, .cta-tile-action, .insights-btn,
-    .nav-toggle, .testimonial-dot, .carousel-btn, .faq-q {
+    .nav-toggle, .testimonial-dot, .carousel-btn, .faq-q,
+    .video-container iframe {
       pointer-events: auto !important;
       touch-action: manipulation !important;
       -webkit-tap-highlight-color: rgba(201,168,76,0.2);
       cursor: pointer;
+      position: relative;
+      z-index: 9999999 !important;
     }
-    body::after, .hero-right::before, .ticker::before, .ticker::after,
-    .book-cover-shadow, .book-section::before, .hero::before {
-      pointer-events: none !important;
-      z-index: -1;
+    /* Force parent containers to not block */
+    .hero-left, .hero-right, .container, section, div, main, .hero-actions, .founder-name {
+      pointer-events: auto !important;
+      z-index: 999999 !important;
+    }
+    /* Remove all pseudo-element overlays completely */
+    body::after, .hero::before, .hero-right::before, .ticker::before, .ticker::after,
+    .book-cover-shadow, .book-section::before, .process-arrow, .callout::before {
+      display: none !important;
     }
     .video-container iframe { pointer-events: auto !important; touch-action: manipulation !important; }
-    .hero-actions .btn, .hero-actions a { display:inline-flex !important; position:relative !important; z-index:999999 !important; pointer-events:auto !important; cursor:pointer !important; }
-    .founder-name a { display:inline-block !important; pointer-events:auto !important; cursor:pointer !important; z-index:999999 !important; position:relative !important; }
-    .book-btn, .pricing-card .card-cta, .cta-tile { cursor:pointer !important; pointer-events:auto !important; position:relative !important; }
+    .hero-actions .btn, .hero-actions a { display:inline-flex !important; position:relative !important; z-index:9999999 !important; pointer-events:auto !important; cursor:pointer !important; }
+    .founder-name a { display:inline-block !important; pointer-events:auto !important; cursor:pointer !important; z-index:9999999 !important; position:relative !important; }
+    .book-btn, .pricing-card .card-cta, .cta-tile { cursor:pointer !important; pointer-events:auto !important; position:relative !important; z-index:9999999 !important; }
+
+    /* Carousel specific fixes */
+    .carousel-btn, .carousel-dot {
+      z-index: 9999999 !important;
+      pointer-events: auto !important;
+    }
+    .carousel-track {
+      touch-action: pan-y pinch-zoom;
+    }
 
     img { display:block; max-width:100%; }
     a { color:inherit; text-decoration:none; }
@@ -565,7 +582,7 @@
       .stats-bar { grid-template-columns:1fr 1fr; }
       .stat-item:nth-child(2) { border-right:none; } .stat-item:nth-child(3) { border-right:1px solid var(--gold-border); border-top:1px solid var(--gold-border); } .stat-item:nth-child(4) { border-right:none; border-top:1px solid var(--gold-border); }
       .footer-grid { grid-template-columns:1fr; gap:48px; } .founder-visual { display:none; }
-      .hero-actions a.btn-gold, .hero-actions a.btn-wa, .founder-name a { position:relative !important; z-index:999999 !important; display:inline-flex !important; }
+      .hero-actions a.btn-gold, .hero-actions a.btn-wa, .founder-name a { position:relative !important; z-index:9999999 !important; display:inline-flex !important; }
     }
     @media (max-width:640px) {
       .pricing-grid { grid-template-columns:1fr; } .cta-grid { grid-template-columns:1fr; } .process-grid { grid-template-columns:1fr; }
@@ -625,7 +642,7 @@
         </h1>
 
         <p class="hero-sub">
-          Jennavi is the premium LinkedIn ghostwriting agency for startup founders and CEOs who are tired of posting into silence. We turn your expertise into <strong>inbound clients, authority and revenue</strong> - through surgical positioning, elite ghostwriting and a strategy built on 873% documented growth.
+          Jennavi is the premium LinkedIn ghostwriting agency for startup founders and CEOs who are tired of posting into silence. We turn your expertise into <strong>inbound clients, authority and revenue</strong> through surgical positioning, elite ghostwriting and a strategy built on 873% documented growth.
         </p>
 
         <!-- Social proof quick-wins under the sub text -->
@@ -959,7 +976,7 @@
             </ul>
 
             <!-- VIDEO - mobile-tappable, SEO VideoObject -->
-            <div class="video-container" itemscope itemtype="https://schema.org/VideoObject">
+            <div class="video-container" style="position: relative; z-index: 9999999; overflow: hidden;" itemscope itemtype="https://schema.org/VideoObject">
               <meta itemprop="name" content="The exact AI prompt I use for Founder LinkedIn content - Jennifer Omaliko">
               <meta itemprop="description" content="Jennifer Omaliko shares the exact AI prompt framework she uses to create high-converting LinkedIn content for founders.">
               <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/gle9p9rEMuE/maxresdefault.jpg">
@@ -968,6 +985,7 @@
               <meta itemprop="embedUrl" content="https://www.youtube.com/embed/gle9p9rEMuE">
               <iframe
                 src="https://www.youtube.com/embed/gle9p9rEMuE?playsinline=1&rel=0"
+                style="position: relative; z-index: 9999999; width: 100%; height: 100%;"
                 title="The exact AI prompt Jennifer Omaliko uses for Founder LinkedIn content"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1095,7 +1113,7 @@
 
           <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <div class="faq-q" itemprop="name" role="button" tabindex="0" aria-expanded="false">Will the content actually sound like me?</div>
-            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Yes. Every Jennavi engagement begins with a comprehensive onboarding process to capture your voice, tone, industry expertise and business goals. Every post is written to sound like you on your best day. Jennifer's ghostwriting methodology is voice-first, not template-driven.</span></div>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Yes. Every Jennavi engagement begins with a comprehensive onboarding process to capture your voice, tone, industry expertise and business goals. Every post is written to sound like you on your best day. Jennifer's ghostwriting methodology is voice first, not template driven.</span></div>
           </div>
 
           <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -1156,7 +1174,7 @@
       <div>
         <p class="footer-col-title">The Jennavi Standard</p>
         <ul style="list-style:none;">
-          <li style="margin-bottom:14px;font-size:13px;color:rgba(250,243,224,0.4);line-height:1.7;display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">→</span>Retainer-first. Revenue-focused. Results documented.</li>
+          <li style="margin-bottom:14px;font-size:13px;color:rgba(250,243,224,0.4);line-height:1.7;display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">→</span>Retainer first. Revenue focused. Results documented.</li>
           <li style="margin-bottom:14px;font-size:13px;color:rgba(250,243,224,0.4);line-height:1.7;display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">→</span>Every deliverable reviewed before it reaches you.</li>
           <li style="margin-bottom:14px;font-size:13px;color:rgba(250,243,224,0.4);line-height:1.7;display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">→</span>Service agreements signed before work begins. Always.</li>
           <li style="font-size:13px;color:rgba(250,243,224,0.4);line-height:1.7;display:flex;gap:10px;"><span style="color:var(--gold);flex-shrink:0;">→</span>First month paid upfront. No payment, no work. No exceptions.</li>
