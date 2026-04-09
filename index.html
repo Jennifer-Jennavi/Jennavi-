@@ -225,7 +225,7 @@
     body { background:var(--onyx); color:var(--ivory); font-family:'Montserrat',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
     body::after { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events:none; z-index:-1; user-select:none; }
 
-    /* GLOBAL MOBILE CLICK FIXES */
+    /* ===== SUPER STRONG MOBILE CLICK FIX (from working DeepSeek) ===== */
     a, button, .btn, .card-cta, .cta-tile, .book-btn, .founder-name a,
     .hero-actions a, .nav-links a, .nav-drawer a, .footer-links a,
     .pricing-card .card-cta, .cta-tile-action, .insights-btn,
@@ -236,17 +236,22 @@
       -webkit-tap-highlight-color: rgba(201,168,76,0.2);
       cursor: pointer;
       position: relative;
+      z-index: 9999999 !important;
+    }
+    /* Force parent containers to not block */
+    .hero-left, .hero-right, .container, section, div, main, .hero-actions, .founder-name {
+      pointer-events: auto !important;
       z-index: 999999 !important;
     }
-    body::after, .hero-right::before, .ticker::before, .ticker::after,
-    .book-cover-shadow, .book-section::before, .hero::before {
-      pointer-events: none !important;
-      z-index: -1;
+    /* Remove all pseudo-element overlays completely */
+    body::after, .hero::before, .hero-right::before, .ticker::before, .ticker::after,
+    .book-cover-shadow, .book-section::before, .process-arrow, .callout::before {
+      display: none !important;
     }
-    .video-container iframe { pointer-events: auto !important; touch-action: manipulation !important; }
-    .hero-actions .btn, .hero-actions a { display:inline-flex !important; position:relative !important; z-index:999999 !important; pointer-events:auto !important; cursor:pointer !important; }
-    .founder-name a { display:inline-block !important; pointer-events:auto !important; cursor:pointer !important; z-index:999999 !important; position:relative !important; }
-    .book-btn, .pricing-card .card-cta, .cta-tile { cursor:pointer !important; pointer-events:auto !important; position:relative !important; }
+    .hero-actions .btn, .hero-actions a { display:inline-flex !important; position:relative !important; z-index:9999999 !important; pointer-events:auto !important; cursor:pointer !important; }
+    .founder-name a { display:inline-block !important; z-index:9999999 !important; }
+    .carousel-btn, .carousel-dot { z-index: 9999999 !important; pointer-events: auto !important; }
+    .carousel-track { touch-action: pan-y pinch-zoom; }
 
     img { display:block; max-width:100%; }
     a { color:inherit; text-decoration:none; }
@@ -267,7 +272,7 @@
     .btn-wa { background:#25D366; color:#fff; }
     .btn-wa:hover { background:#20b859; }
 
-    /* NAV – simplified from working founder.html */
+    /* NAV (simplified, working on mobile - from founder.html) */
     .nav { position:fixed; top:0; left:0; right:0; z-index:10000; padding:18px 48px; display:flex; justify-content:space-between; align-items:center; background:rgba(10,10,10,0.97); backdrop-filter:blur(14px); border-bottom:1px solid var(--gold-border); }
     .nav-logo img { height:30px; width:auto; display:block; }
     .nav-links { display:flex; gap:24px; list-style:none; align-items:center; }
@@ -277,7 +282,7 @@
     .nav-links .nav-book { border:1px solid var(--gold-border-s); color:var(--gold) !important; opacity:1 !important; padding:7px 14px; }
     .nav-links .nav-cta { background:var(--gold); color:var(--onyx) !important; opacity:1 !important; padding:9px 20px; font-weight:600; }
     .nav-links .nav-cta:hover { background:var(--gold-light) !important; }
-    .nav-toggle { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; cursor:pointer; }
+    .nav-toggle { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; cursor:pointer; z-index:9999999 !important; }
     .nav-toggle span { display:block; width:24px; height:1px; background:var(--ivory); transition:transform 0.3s, opacity 0.3s; }
     .nav-toggle.open span:nth-child(1) { transform:translateY(6px) rotate(45deg); }
     .nav-toggle.open span:nth-child(2) { opacity:0; }
@@ -489,7 +494,7 @@
     .insights-btn { display:inline-flex; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; padding:14px 32px; background:transparent; border:1.5px solid var(--gold); color:var(--gold); cursor:pointer; transition:all 0.25s ease; text-decoration:none; border-radius:2px; min-height:44px; }
     .insights-btn:hover { background:var(--gold); color:var(--onyx); transform:translateY(-2px); gap:16px; }
 
-    /* FOOTER (full) */
+    /* FOOTER */
     footer { border-top:1px solid var(--gold-border); padding:80px 48px 48px; }
     .footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:64px; padding-bottom:56px; border-bottom:1px solid var(--gold-border); }
     .footer-brand-name { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; display:block; margin-bottom:16px; }
@@ -546,7 +551,7 @@
       .stat-item:nth-child(4) { border-right:none; border-top:1px solid var(--gold-border); }
       .footer-grid { grid-template-columns:1fr; gap:48px; }
       .founder-visual { display:none; }
-      .hero-actions a.btn-gold, .hero-actions a.btn-wa, .founder-name a { position:relative !important; z-index:999999 !important; display:inline-flex !important; }
+      .hero-actions a.btn-gold, .hero-actions a.btn-wa, .founder-name a { position:relative !important; z-index:9999999 !important; display:inline-flex !important; }
     }
     @media (max-width:640px) {
       .pricing-grid { grid-template-columns:1fr; }
@@ -925,15 +930,16 @@
             </ul>
 
             <!-- VIDEO - mobile-tappable, SEO VideoObject -->
-            <div class="video-container" itemscope itemtype="https://schema.org/VideoObject">
+            <div class="video-container" style="position: relative; z-index: 9999999; overflow: hidden;" itemscope itemtype="https://schema.org/VideoObject">
               <meta itemprop="name" content="The exact AI prompt I use for Founder LinkedIn content - Jennifer Omaliko">
-              <meta itemprop="description" content="Jennifer Omaliko shares the exact AI prompt framework she uses to create high-converting LinkedIn content for founders that builds authority and generates inbound clients.">
+              <meta itemprop="description" content="Jennifer Omaliko shares the exact AI prompt framework she uses to create high-converting LinkedIn content for founders.">
               <meta itemprop="thumbnailUrl" content="https://img.youtube.com/vi/gle9p9rEMuE/maxresdefault.jpg">
               <meta itemprop="uploadDate" content="2026-04-01">
               <meta itemprop="contentUrl" content="https://www.youtube.com/watch?v=gle9p9rEMuE">
               <meta itemprop="embedUrl" content="https://www.youtube.com/embed/gle9p9rEMuE">
               <iframe
                 src="https://www.youtube.com/embed/gle9p9rEMuE?playsinline=1&rel=0"
+                style="position: relative; z-index: 9999999; width: 100%; height: 100%;"
                 title="The exact AI prompt Jennifer Omaliko uses for Founder LinkedIn content"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
