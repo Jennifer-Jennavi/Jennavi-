@@ -1353,4 +1353,21 @@
         document.querySelectorAll('.faq-item').forEach(function(i) {
           i.classList.remove('open');
           const qEl = i.querySelector('.faq-q');
-  
+          if (qEl) qEl.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          q.click();
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
