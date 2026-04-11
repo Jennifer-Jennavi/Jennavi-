@@ -107,13 +107,11 @@
     /* Grain texture — position:absolute on a wrapper so it never blocks touch events */
     .grain-overlay { position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events:none !important; z-index:0; user-select:none; }
 
-    /* Universal mobile tap fix — high z-index so nothing blocks touch */
-    a, button, [role="button"], [tabindex] {
-      pointer-events:auto !important;
-      touch-action:manipulation !important;
-      -webkit-tap-highlight-color:rgba(201,168,76,0.2);
-      position:relative;
-      z-index:10 !important;
+    /* Universal mobile tap fix */
+    a, button {
+      pointer-events: auto !important;
+      touch-action: manipulation !important;
+      -webkit-tap-highlight-color: rgba(201,168,76,0.2);
     }
     a { color:inherit; text-decoration:none; }
     img { display:block; max-width:100%; }
@@ -589,62 +587,102 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // NAV TOGGLE (exact same pattern as services/book)
-    const toggle = document.getElementById('navToggle');
-    const drawer = document.getElementById('navDrawer');
-    const overlay = document.getElementById('navOverlay');
-    const openMenu = function() { toggle.classList.add('open'); drawer.classList.add('open'); overlay.classList.add('open'); toggle.setAttribute('aria-expanded','true'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; };
-    const closeMenu = function() { toggle.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
-    toggle.addEventListener('click', function() { toggle.classList.contains('open') ? closeMenu() : openMenu(); });
+  <script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // NAV TOGGLE
+    var toggle = document.getElementById('navToggle');
+    var drawer = document.getElementById('navDrawer');
+    var overlay = document.getElementById('navOverlay');
+
+    function openMenu() {
+      toggle.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded','true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      toggle.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', function() {
+      toggle.classList.contains('open') ? closeMenu() : openMenu();
+    });
     overlay.addEventListener('click', closeMenu);
-    drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
-    document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeMenu(); });
+    drawer.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
 
     // FAQ ACCORDION
     document.querySelectorAll('.faq-q').forEach(function(q) {
       q.addEventListener('click', function() {
-        const item = this.parentElement;
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        var item = this.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+          i.classList.remove('open');
+        });
         if (!isOpen) item.classList.add('open');
       });
-      q.addEventListener('keydown', function(e) { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); this.click(); } });
     });
 
     // BOOK CAROUSEL
-    (function() {
-      const track = document.getElementById('carouselTrack');
-      const dots = document.querySelectorAll('.carousel-dot');
-      const counter = document.getElementById('carouselCounter');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const total = dots.length;
-      let current = 0, autoTimer = null;
+    var track = document.getElementById('carouselTrack');
+    var dots = document.querySelectorAll('.carousel-dot');
+    var counter = document.getElementById('carouselCounter');
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+    var total = dots.length;
+    var current = 0;
+    var autoTimer = null;
 
-      function goTo(index) {
-        current = ((index % total) + total) % total;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        dots.forEach(function(d, i) { d.classList.toggle('active', i===current); });
-        counter.textContent = (current+1) + ' / ' + total;
-      }
-      function startAuto() { stopAuto(); autoTimer = setInterval(function() { goTo(current+1); }, 5000); }
-      function stopAuto() { if (autoTimer) clearInterval(autoTimer); }
+    function goTo(index) {
+      current = ((index % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+      counter.textContent = (current + 1) + ' / ' + total;
+    }
+    function stopAuto() { if (autoTimer) clearInterval(autoTimer); }
+    function startAuto() { stopAuto(); autoTimer = setInterval(function() { goTo(current + 1); }, 5000); }
 
-      prevBtn.addEventListener('click', function() { goTo(current-1); stopAuto(); startAuto(); });
-      nextBtn.addEventListener('click', function() { goTo(current+1); stopAuto(); startAuto(); });
-      dots.forEach(function(dot) {
-        dot.addEventListener('click', function() { goTo(parseInt(this.dataset.index)); stopAuto(); startAuto(); });
+    prevBtn.addEventListener('click', function() { goTo(current - 1); stopAuto(); startAuto(); });
+    nextBtn.addEventListener('click', function() { goTo(current + 1); stopAuto(); startAuto(); });
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goTo(parseInt(this.getAttribute('data-index')));
+        stopAuto(); startAuto();
       });
+    });
 
-      // Swipe — ignores touches that start on links/buttons
-      let startX = 0, isSwiping = false;
-      const carousel = document.getElementById('bookCarousel');
-      carousel.addEventListener('touchstart', function(e) {
-        if (e.target.closest('a, button, .btn-get-book')) return;
-        startX = e.touches[0].clientX; isSwiping = true;
-      }, { passive:true });
-      carousel.addEventListener('touchend', function(e) {
-        if (!isSwiping) return;
-        const diff = startX - e.changedTouches[0].clientX;
-       
+    // Swipe support
+    var startX = 0;
+    var isSwiping = false;
+    var carousel = document.getElementById('bookCarousel');
+    carousel.addEventListener('touchstart', function(e) {
+      if (e.target.closest('a, button')) return;
+      startX = e.touches[0].clientX;
+      isSwiping = true;
+    }, { passive: true });
+    carousel.addEventListener('touchend', function(e) {
+      if (!isSwiping) return;
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) { goTo(current + (diff > 0 ? 1 : -1)); stopAuto(); startAuto(); }
+      isSwiping = false;
+    });
+    carousel.addEventListener('touchcancel', function() { isSwiping = false; });
+
+    startAuto();
+
+  }); // end DOMContentLoaded
+  </script>
+
+</body>
+</html>
