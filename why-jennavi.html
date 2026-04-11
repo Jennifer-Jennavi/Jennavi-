@@ -72,21 +72,34 @@
       },
       {
         "@type": "FAQPage",
+        "@id": "https://jennavi.co/why-jennavi.html#faq",
         "mainEntity": [
           {
             "@type": "Question",
+            "@id": "https://jennavi.co/why-jennavi.html#faq-1",
             "name": "What makes Jennavi different from other LinkedIn ghostwriters?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Jennavi focuses on revenue outcomes, not engagement metrics. Every post, strategy and piece of copy is built to move a founder closer to a DM, a discovery call or a closed deal. Jennifer also practices what she sells. Her personal LinkedIn grew 873% with zero paid ads using the same methodology she applies for clients."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jennavi focuses on revenue outcomes, not engagement metrics. Every post, strategy and piece of copy is built to move a founder closer to a DM, a discovery call or a closed deal. Jennifer also practices what she sells. Her personal LinkedIn grew 873% with zero paid ads using the same methodology she applies for clients."
+            }
           },
           {
             "@type": "Question",
+            "@id": "https://jennavi.co/why-jennavi.html#faq-2",
             "name": "Does Jennavi work with founders outside of Africa?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Yes. Jennavi has active clients across the US, UK, Australia, Pakistan, India and beyond. The positioning and content strategy work regardless of geography because LinkedIn's algorithm and buyer psychology operate the same way globally."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Jennavi has active clients across the US, UK, Australia, Pakistan, India and beyond. The positioning and content strategy work regardless of geography because LinkedIn's algorithm and buyer psychology operate the same way globally."
+            }
           },
           {
             "@type": "Question",
+            "@id": "https://jennavi.co/why-jennavi.html#faq-3",
             "name": "What does attention without conversion mean for founders?",
-            "acceptedAnswer": {"@type": "Answer", "text": "Most founders accumulate impressions and followers without generating inbound client inquiries. That is attention without conversion. Jennavi's strategy is specifically designed to bridge that gap by making every post position the founder as the obvious solution to a specific problem rather than simply a thought leader."}
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most founders accumulate impressions and followers without generating inbound client inquiries. That is attention without conversion. Jennavi's strategy is specifically designed to bridge that gap by making every post position the founder as the obvious solution to a specific problem rather than simply a thought leader."
+            }
           }
         ]
       }
@@ -169,11 +182,14 @@
     /* BREADCRUMB */
     .breadcrumb { padding:92px 24px 0; max-width:900px; margin:0 auto; }
 
-    /* EDGE ITEMS (three pillars) */
-    .edge-item { border-left:3px solid var(--gold); padding:28px 0 28px 28px; margin-bottom:40px; }
-    .edge-item:last-child { margin-bottom:0; }
-    .edge-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--gold); margin-bottom:12px; }
-    .edge-body { font-size:15.5px; color:var(--ivory-muted); line-height:1.8; }
+    /* NUMBERED PILLARS */
+    .pillars { display:flex; flex-direction:column; gap:28px; margin-bottom:56px; }
+    .pillar-card { display:flex; gap:28px; align-items:flex-start; background:var(--onyx-card); border:1px solid var(--gold-border); padding:32px 28px; position:relative; overflow:hidden; }
+    .pillar-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--gold); }
+    .pillar-num { font-family:'Playfair Display',serif; font-size:72px; font-weight:900; color:var(--gold); line-height:1; flex-shrink:0; opacity:0.18; letter-spacing:-0.04em; margin-top:-8px; user-select:none; }
+    .pillar-content { flex:1; }
+    .pillar-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--gold); margin-bottom:10px; }
+    .pillar-body { font-size:15.5px; color:var(--ivory-muted); line-height:1.8; }
 
     /* STATS ROW with counting animation */
     .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--gold-border); margin:64px 0; }
@@ -193,7 +209,7 @@
     .faq-q::after { content:'+'; color:var(--gold); font-size:22px; font-weight:300; flex-shrink:0; transition:transform 0.2s; font-family:'Montserrat',sans-serif; }
     .faq-item.open .faq-q::after { transform:rotate(45deg); }
     .faq-a { font-size:15px; color:var(--ivory-muted); line-height:1.8; max-height:0; overflow:hidden; transition:max-height 0.3s ease, padding 0.3s ease; }
-    .faq-item.open .faq-a { max-height:200px; padding-top:14px; }
+    .faq-item.open .faq-a { max-height:500px; padding-top:14px; }
 
     /* FOOTER (full, with both Facebook links) */
     footer { border-top:1px solid var(--gold-border); padding:80px 48px 48px; }
@@ -262,18 +278,27 @@
         <p class="serif" style="font-size:clamp(20px,2.5vw,28px); font-style:italic; color:rgba(250,243,224,0.7); margin-bottom:40px; line-height:1.5;">Attention is cheap. Authority is expensive.</p>
         <p style="font-size:17px; color:var(--ivory-muted); line-height:1.9; max-width:700px; margin-bottom:56px;">Most ghostwriters focus on grammar. We focus on positioning. At Jennavi, we do not just write posts. We engineer digital authority. For a founder, attention without conversion is a vanity project. We bridge the gap between your deep expertise and the global stage, ensuring you are not just seen. You are sought after.</p>
 
-        <div>
-          <div class="edge-item">
-            <h2 class="edge-title">Strategy Over Syntax</h2>
-            <p class="edge-body">We do not fix your grammar. We fix your market positioning. Every word we write is a deliberate move toward a DM, a booking, or a closed deal. Revenue is the only metric that matters at Jennavi. When your content is not producing inbound inquiries, the problem is not the writing. It is the positioning underneath it.</p>
+        <div class="pillars">
+          <div class="pillar-card">
+            <span class="pillar-num" aria-hidden="true">1</span>
+            <div class="pillar-content">
+              <h2 class="pillar-title">Strategy Over Syntax</h2>
+              <p class="pillar-body">We do not fix your grammar. We fix your market positioning. Every word we write is a deliberate move toward a DM, a booking, or a closed deal. Revenue is the only metric that matters at Jennavi. When your content is not producing inbound inquiries, the problem is not the writing. It is the positioning underneath it.</p>
+            </div>
           </div>
-          <div class="edge-item">
-            <h2 class="edge-title">Founder-First Empathy</h2>
-            <p class="edge-body">Jennifer is building her own global company while helping you build yours. She speaks the language of the person who is building, not just the person who is posting. That credibility cannot be purchased or replicated. She has been where you are. She knows exactly what your LinkedIn needs to do.</p>
+          <div class="pillar-card">
+            <span class="pillar-num" aria-hidden="true">2</span>
+            <div class="pillar-content">
+              <h2 class="pillar-title">Founder-First Empathy</h2>
+              <p class="pillar-body">Jennifer is building her own global company while helping you build yours. She speaks the language of the person who is building, not just the person who is posting. That credibility cannot be purchased or replicated. She has been where you are. She knows exactly what your LinkedIn needs to do.</p>
+            </div>
           </div>
-          <div class="edge-item">
-            <h2 class="edge-title">Global Authority, Proven</h2>
-            <p class="edge-body">873% impression growth. 5,500+ followers. 106,000+ organic impressions. Zero paid ads. The strategy Jennavi sells is the strategy Jennifer has lived, tested and documented publicly. Your results are not built on theory. They are built on proven ground.</p>
+          <div class="pillar-card">
+            <span class="pillar-num" aria-hidden="true">3</span>
+            <div class="pillar-content">
+              <h2 class="pillar-title">Global Authority, Proven</h2>
+              <p class="pillar-body">873% impression growth. 5,500+ followers. 106,000+ organic impressions. Zero paid ads. The strategy Jennavi sells is the strategy Jennifer has lived, tested and documented publicly. Your results are not built on theory. They are built on proven ground.</p>
+            </div>
           </div>
         </div>
 
@@ -292,23 +317,59 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+    <section class="faq-section">
       <div class="container">
         <h2 class="faq-title">Founders <em>Often Ask</em></h2>
 
-        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <div class="faq-q" itemprop="name" role="button" tabindex="0">What makes Jennavi different from other LinkedIn ghostwriters?</div>
-          <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Jennavi focuses on revenue outcomes, not engagement metrics. Every post, strategy and piece of copy is built to move a founder closer to a DM, a discovery call or a closed deal. Jennifer also practices what she sells. Her personal LinkedIn grew 873% with zero paid ads using the same methodology she applies for clients.</span></div>
+        <div class="faq-item">
+          <div class="faq-q" role="button" tabindex="0">What makes Jennavi different from other LinkedIn ghostwriters?</div>
+          <div class="faq-a">Jennavi focuses on revenue outcomes, not engagement metrics. Every post, strategy and piece of copy is built to move a founder closer to a DM, a discovery call or a closed deal. Jennifer also practices what she sells. Her personal LinkedIn grew 873% with zero paid ads using the same methodology she applies for clients.</div>
         </div>
 
-        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <div class="faq-q" itemprop="name" role="button" tabindex="0">Does Jennavi work with founders outside of Africa?</div>
-          <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Yes. Jennavi has active clients across the US, UK, Australia, Pakistan, India and beyond. The positioning and content strategy work regardless of geography because LinkedIn's algorithm and buyer psychology operate the same way globally.</span></div>
+        <div class="faq-item">
+          <div class="faq-q" role="button" tabindex="0">Does Jennavi work with founders outside of Africa?</div>
+          <div class="faq-a">Yes. Jennavi has active clients across the US, UK, Australia, Pakistan, India and beyond. The positioning and content strategy work regardless of geography because LinkedIn's algorithm and buyer psychology operate the same way globally.</div>
         </div>
 
-        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <div class="faq-q" itemprop="name" role="button" tabindex="0">What does attention without conversion mean for founders?</div>
-          <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Most founders accumulate impressions and followers without generating inbound client inquiries. That is attention without conversion. Jennavi's strategy is specifically designed to bridge that gap by making every post position the founder as the obvious solution to a specific problem rather than simply a thought leader.</span></div>
+        <div class="faq-item">
+          <div class="faq-q" role="button" tabindex="0">What does attention without conversion mean for founders?</div>
+          <div class="faq-a">Most founders accumulate impressions and followers without generating inbound client inquiries. That is attention without conversion. Jennavi's strategy is specifically designed to bridge that gap by making every post position the founder as the obvious solution to a specific problem rather than simply a thought leader.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRICKETS SECTION -->
+    <section style="padding:64px 0; border-top:1px solid var(--gold-border); background:var(--onyx-card);">
+      <div class="container" style="max-width:960px;">
+        <div style="display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+
+          <!-- CAROUSEL -->
+          <div style="flex:1; min-width:240px; max-width:320px; margin:0 auto;">
+            <div style="position:relative; width:100%; overflow:hidden; border-radius:6px;" id="wjCarousel">
+              <div style="display:flex; transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);" id="wjCarouselTrack">
+                <div style="flex:0 0 100%;"><img src="/IMG-20260406-WA0015.jpg" alt="CRICKETS book cover by Jennifer Omaliko" style="width:100%; display:block; border-radius:4px; box-shadow:0 0 0 2px rgba(201,168,76,0.45), 0 20px 40px rgba(0,0,0,0.5);"></div>
+                <div style="flex:0 0 100%;"><img src="/IMG-20260405-WA0009.jpg" alt="CRICKETS on laptop and phone" style="width:100%; display:block; border-radius:4px; box-shadow:0 0 0 2px rgba(201,168,76,0.45), 0 20px 40px rgba(0,0,0,0.5);" loading="lazy"></div>
+                <div style="flex:0 0 100%;"><img src="/IMG-20260405-WA0008.jpg" alt="Open CRICKETS book pages" style="width:100%; display:block; border-radius:4px; box-shadow:0 0 0 2px rgba(201,168,76,0.45), 0 20px 40px rgba(0,0,0,0.5);" loading="lazy"></div>
+              </div>
+              <button onclick="wjCarousel(-1)" aria-label="Previous" style="position:absolute;top:50%;left:8px;transform:translateY(-50%);background:rgba(0,0,0,0.7);border:1px solid rgba(201,168,76,0.45);color:#C9A84C;font-size:18px;padding:8px 12px;border-radius:4px;cursor:pointer;touch-action:manipulation;z-index:10;">&#10094;</button>
+              <button onclick="wjCarousel(1)" aria-label="Next" style="position:absolute;top:50%;right:8px;transform:translateY(-50%);background:rgba(0,0,0,0.7);border:1px solid rgba(201,168,76,0.45);color:#C9A84C;font-size:18px;padding:8px 12px;border-radius:4px;cursor:pointer;touch-action:manipulation;z-index:10;">&#10095;</button>
+            </div>
+            <div style="display:flex;justify-content:center;gap:8px;margin-top:14px;" id="wjCarouselDots">
+              <span style="width:8px;height:8px;border-radius:50%;background:#C9A84C;display:inline-block;cursor:pointer;" onclick="wjGoTo(0)"></span>
+              <span style="width:8px;height:8px;border-radius:50%;background:rgba(201,168,76,0.35);display:inline-block;cursor:pointer;" onclick="wjGoTo(1)"></span>
+              <span style="width:8px;height:8px;border-radius:50%;background:rgba(201,168,76,0.35);display:inline-block;cursor:pointer;" onclick="wjGoTo(2)"></span>
+            </div>
+          </div>
+
+          <!-- COPY -->
+          <div style="flex:1.2; min-width:240px;">
+            <p style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); opacity:0.7; margin-bottom:16px;">The Methodology in Writing</p>
+            <h2 style="font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px); font-weight:900; color:var(--ivory); line-height:1.1; margin-bottom:16px;">The Playbook Behind<br><em style="color:var(--gold); font-style:italic;">The Agency.</em></h2>
+            <p style="font-size:15px; color:var(--ivory-muted); line-height:1.75; margin-bottom:32px;">CRICKETS is the 53-page system Jennifer built before she built Jennavi. It is the exact positioning framework she now runs client accounts on. If you want to understand the methodology before you engage us, start here.</p>
+            <a href="/book.html" class="btn">READ CRICKETS &rarr;</a>
+            <p style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.1em; color:var(--muted); margin-top:14px; text-transform:uppercase;">$29.90 · Instant PDF · Read it tonight</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -335,8 +396,8 @@
       <div>
         <p class="footer-col-title">Direct Contact</p>
         <ul class="footer-links direct-contact" role="list">
-          <li><a href="mailto:omalikojennifermmesoma@gmail.com?subject=Inquiry%20via%20Jennavi" aria-label="Email Jennifer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><span>omalikojennifermmesoma@gmail.com</span></a></li>
-          <li><a href="mailto:jennavi.global@gmail.com?subject=New%20Client%20Inquiry" aria-label="Email Jennavi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><span>jennavi.global@gmail.com</span></a></li>
+          <li><a href="/cdn-cgi/l/email-protection#503f3d313c393b3f3a353e3e393635223d3d35233f3d3110373d31393c7e333f3d6f2325323a3533246d193e21253922297562602639317562601a353e3e312639" aria-label="Email Jennifer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><span><span class="__cf_email__" data-cfemail="c8a7a5a9a4a1a3a7a2ada6a6a1aeadbaa5a5adbba7a5a988afa5a9a1a4e6aba7a5">[email&#160;protected]</span></span></a></li>
+          <li><a href="/cdn-cgi/l/email-protection#254f404b4b44534c0b42494a474449654248444c490b464a481a5650474f404651186b405200171566494c404b510017156c4b54504c575c" aria-label="Email Jennavi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><span><span class="__cf_email__" data-cfemail="5f353a31313e2936713833303d3e331f38323e3633713c3032">[email&#160;protected]</span></span></a></li>
           <li><a href="tel:+2349031237643" aria-label="Phone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+234 903 123 7643</span></a></li>
           <li><a href="https://wa.me/2349031237643?text=Hi%20Jennifer%2C%20I%27d%20love%20to%20learn%20more%20about%20Jennavi!" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>WhatsApp</span></a></li>
           <li><a href="https://calendly.com/omalikojennifermmesoma/30min" target="_blank" rel="noopener noreferrer" aria-label="Calendly"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Book a Strategy Call</span></a></li>
@@ -402,19 +463,49 @@
         var item = this.parentElement;
         var isOpen = item.classList.contains('open');
         document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-        if (!isOpen) item.classList.add('open');
+        if (!isOpen) { item.classList.add('open'); }
       });
-      q.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); } });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
+      });
     });
 
+    // CRICKETS CAROUSEL
+    var wjIdx = 0;
+    var wjTotal = 3;
+    function wjGoTo(n) {
+      wjIdx = ((n % wjTotal) + wjTotal) % wjTotal;
+      var track = document.getElementById('wjCarouselTrack');
+      if (!track) return;
+      var w = track.parentElement.getBoundingClientRect().width;
+      track.style.transform = 'translateX(-' + (wjIdx * w) + 'px)';
+      var dots = document.querySelectorAll('#wjCarouselDots span');
+      dots.forEach(function(d, i) { d.style.background = i === wjIdx ? '#C9A84C' : 'rgba(201,168,76,0.35)'; });
+    }
+    function wjCarousel(dir) { wjGoTo(wjIdx + dir); }
+    window.addEventListener('resize', function() { wjGoTo(wjIdx); });
+
     // NAV TOGGLE
-    var toggle = document.getElementById('navToggle'), drawer = document.getElementById('navDrawer'), overlay = document.getElementById('navOverlay');
-    var openMenu = function() { toggle.classList.add('open'); drawer.classList.add('open'); overlay.classList.add('open'); toggle.setAttribute('aria-expanded','true'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; };
-    var closeMenu = function() { toggle.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; };
-    toggle.addEventListener('click', function() { toggle.classList.contains('open') ? closeMenu() : openMenu(); });
+    var toggle = document.getElementById('navToggle');
+    var drawer = document.getElementById('navDrawer');
+    var overlay = document.getElementById('navOverlay');
+
+    function openMenu() {
+      toggle.classList.add('open'); drawer.classList.add('open'); overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true'); overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      toggle.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false'); overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    toggle.addEventListener('click', function() {
+      if (toggle.classList.contains('open')) { closeMenu(); } else { openMenu(); }
+    });
     overlay.addEventListener('click', closeMenu);
     drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeMenu(); } });
   </script>
 </body>
 </html>
