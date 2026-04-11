@@ -200,13 +200,13 @@
     /* BREADCRUMB */
     .breadcrumb { padding:92px 24px 0; max-width:900px; margin:0 auto; }
 
-    /* FOUNDER HERO IMAGE – full width */
-    .founder-hero-wrap { position:relative; width:100vw; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; height:min(90vh,680px); overflow:hidden; }
-    .founder-hero-wrap img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-    .founder-hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.0) 35%, rgba(10,10,10,0.65) 80%, rgba(10,10,10,1) 100%); }
-    .founder-hero-badge { position:absolute; bottom:40px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:10px; }
-    .founder-jo-monogram { width:72px; height:72px; border-radius:50%; border:2px solid var(--gold); background:rgba(10,10,10,0.6); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:28px; font-weight:900; color:var(--gold); backdrop-filter:blur(10px); }
-    .founder-hero-caption { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(250,243,224,0.7); white-space:nowrap; }
+    /* FOUNDER HERO IMAGE – full width, no zoom */
+    .founder-hero-wrap { position:relative; width:100vw; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; overflow:hidden; background:#C9A84C; }
+    .founder-hero-wrap img { width:100%; height:auto; display:block; object-fit:contain; object-position:center top; }
+    .founder-hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,10,10,0.0) 0%, rgba(10,10,10,0.0) 70%, rgba(10,10,10,0.8) 90%, rgba(10,10,10,1) 100%); pointer-events:none; }
+    .founder-hero-badge { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; z-index:2; }
+    .founder-jo-monogram { width:64px; height:64px; border-radius:50%; border:2px solid var(--gold); background:rgba(10,10,10,0.75); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:24px; font-weight:900; color:var(--gold); backdrop-filter:blur(10px); }
+    .founder-hero-caption { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(250,243,224,0.8); white-space:nowrap; }
 
     .founder-name { font-family:'Playfair Display',serif; font-size:clamp(44px,7vw,80px); font-weight:900; color:var(--gold); margin-bottom:8px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase; }
     .founder-title-mono { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:32px; opacity:0.8; }
@@ -300,7 +300,7 @@
 
   <main>
     <!-- FOUNDER HERO IMAGE – full width -->
-    <div style="padding-top:67px;">
+    <div style="padding-top:66px; overflow:hidden;">
       <div class="founder-hero-wrap">
         <img src="/IMG-20260323-WA0003(1).jpg" alt="Jennifer Mmesoma Omaliko, Founder and CEO of Jennavi, LinkedIn Ghostwriter for Founders" loading="eager">
         <div class="founder-hero-overlay"></div>
@@ -373,6 +373,42 @@
         </div>
       </div>
     </section>
+    <!-- CRICKETS SUBTLE CTA -->
+    <section style="padding:64px 0; border-top:1px solid var(--gold-border); background:var(--onyx-card);">
+      <div class="container" style="max-width:960px;">
+        <div style="display:flex; flex-wrap:wrap; gap:48px; align-items:center;">
+
+          <!-- CAROUSEL -->
+          <div style="flex:1; min-width:240px; max-width:340px; margin:0 auto;">
+            <div style="position:relative; width:100%; overflow:hidden; border-radius:6px;" id="founderBookCarousel">
+              <div style="display:flex; transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);" id="founderCarouselTrack">
+                <div style="flex:0 0 100%;"><img src="/IMG-20260406-WA0015.jpg" alt="CRICKETS book cover by Jennifer Omaliko" style="width:100%; display:block; border-radius:4px; box-shadow:0 0 0 2px rgba(201,168,76,0.45), 0 20px 40px rgba(0,0,0,0.5);"></div>
+                <div style="flex:0 0 100%;"><img src="/IMG-20260405-WA0009.jpg" alt="CRICKETS on laptop and phone" style="width:100%; display:block; border-radius:4px; box-shadow:0 0 0 2px rgba(201,168,76,0.45), 0 20px 40px rgba(0,0,0,0.5);" loading="lazy"></div>
+                <div style="flex:0 0 100%;"><img src="/IMG-20260405-WA0008.jpg" alt="Open CRICKETS book pages" style="width:100%; display:block; border-radius:4px; box-shadow:0 0 0 2px rgba(201,168,76,0.45), 0 20px 40px rgba(0,0,0,0.5);" loading="lazy"></div>
+              </div>
+              <button onclick="founderCarousel(-1)" aria-label="Previous" style="position:absolute;top:50%;left:8px;transform:translateY(-50%);background:rgba(0,0,0,0.7);border:1px solid rgba(201,168,76,0.45);color:#C9A84C;font-size:18px;padding:8px 12px;border-radius:4px;cursor:pointer;touch-action:manipulation;z-index:10;">&#10094;</button>
+              <button onclick="founderCarousel(1)" aria-label="Next" style="position:absolute;top:50%;right:8px;transform:translateY(-50%);background:rgba(0,0,0,0.7);border:1px solid rgba(201,168,76,0.45);color:#C9A84C;font-size:18px;padding:8px 12px;border-radius:4px;cursor:pointer;touch-action:manipulation;z-index:10;">&#10095;</button>
+            </div>
+            <div style="display:flex;justify-content:center;gap:8px;margin-top:14px;" id="founderCarouselDots">
+              <span style="width:8px;height:8px;border-radius:50%;background:#C9A84C;display:inline-block;cursor:pointer;" onclick="founderGoTo(0)"></span>
+              <span style="width:8px;height:8px;border-radius:50%;background:rgba(201,168,76,0.35);display:inline-block;cursor:pointer;" onclick="founderGoTo(1)"></span>
+              <span style="width:8px;height:8px;border-radius:50%;background:rgba(201,168,76,0.35);display:inline-block;cursor:pointer;" onclick="founderGoTo(2)"></span>
+            </div>
+          </div>
+
+          <!-- COPY -->
+          <div style="flex:1.2; min-width:240px;">
+            <p style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); opacity:0.7; margin-bottom:16px;">Jennifer's Manifesto</p>
+            <h2 style="font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,44px); font-weight:900; color:var(--ivory); line-height:1.1; margin-bottom:16px;">She Wrote the Playbook.<br><em style="color:var(--gold); font-style:italic;">Literally.</em></h2>
+            <p style="font-size:15px; color:var(--ivory-muted); line-height:1.75; margin-bottom:32px;">CRICKETS is the 53-page LinkedIn positioning system Jennifer built from her own journey. If you want to understand how she thinks before you work with her, start here.</p>
+            <a href="/book.html" class="btn">READ CRICKETS &rarr;</a>
+            <p style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.1em; color:var(--muted); margin-top:14px; text-transform:uppercase;">$29.90 · Instant PDF · Read it tonight</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER (full social icons + direct contact, same as homepage) -->
@@ -423,20 +459,62 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // FAQ ACCORDION – works on mobile tap
+  <script>
+    // FAQ ACCORDION
     document.querySelectorAll('.faq-q').forEach(function(q) {
-      q.addEventListener('click', function(e) {
-        e.preventDefault();
-        const item = this.parentElement;
-        const isOpen = item.classList.contains('open');
+      q.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isOpen = item.classList.contains('open');
         document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-        if (!isOpen) item.classList.add('open');
+        if (!isOpen) { item.classList.add('open'); }
       });
-      q.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); } });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
+      });
     });
 
     // NAV TOGGLE
-    const toggle = document.getElementById('navToggle'), drawer = document.getElementById('navDrawer'), overlay = document.getElementById('navOverlay');
-    const openMenu = function() { toggle.classList.add('open'); drawer.classList.add('open'); overlay.classList.add('open'); toggle.setAttribute('aria-expanded','true'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; };
-    const closeMenu = function() { toggle.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded','fa
+    var toggle = document.getElementById('navToggle');
+    var drawer = document.getElementById('navDrawer');
+    var overlay = document.getElementById('navOverlay');
+
+    function openMenu() {
+      toggle.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      toggle.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', function() {
+      if (toggle.classList.contains('open')) { closeMenu(); } else { openMenu(); }
+    });
+    // CRICKETS CAROUSEL on founder page
+    var founderIdx = 0;
+    var founderTotal = 3;
+    function founderGoTo(n) {
+      founderIdx = ((n % founderTotal) + founderTotal) % founderTotal;
+      var track = document.getElementById('founderCarouselTrack');
+      var w = track.parentElement.getBoundingClientRect().width;
+      track.style.transform = 'translateX(-' + (founderIdx * w) + 'px)';
+      var dots = document.querySelectorAll('#founderCarouselDots span');
+      dots.forEach(function(d, i) { d.style.background = i === founderIdx ? '#C9A84C' : 'rgba(201,168,76,0.35)'; });
+    }
+    function founderCarousel(dir) { founderGoTo(founderIdx + dir); }
+    window.addEventListener('resize', function() { founderGoTo(founderIdx); });
+
+    overlay.addEventListener('click', closeMenu);
+    drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeMenu(); } });
+  </script>
+</body>
+</html>
