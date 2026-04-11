@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="google-site-verification" content="5FuNKCVY0tOLD_qChBmZ_56GD-fEDqFDh5wjBNF9-oU">
 
   <!-- Favicon -->
@@ -105,11 +105,10 @@
     body { background:var(--onyx); color:var(--ivory); font-family:'Montserrat',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
     body::after { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E"); pointer-events:none; z-index:-1; user-select:none; }
 
-    /* MOBILE CLICK FIX — exact same as book.html which works on mobile */
+    /* MOBILE CLICK FIX — exact match to book.html */
     a, button, .btn, .card-cta, .book-btn, .btn-cta, .btn-get-book,
     .nav-links a, .nav-drawer a, .footer-links a,
-    .nav-toggle, .carousel-dot, .carousel-arrow, .faq-q,
-    [role="button"], [tabindex="0"] {
+    .nav-toggle, .carousel-dot, .carousel-arrow, .faq-q {
       pointer-events: auto !important;
       touch-action: manipulation !important;
       -webkit-tap-highlight-color: rgba(201,168,76,0.2);
@@ -205,7 +204,7 @@
     .book-section { margin:72px auto; max-width:800px; padding:0 24px; }
     .book-section-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
     .book-section-label::after { content:''; flex:1; height:1px; background:var(--gold-border); }
-    .book-carousel { position:relative; overflow:hidden; border:1px solid var(--gold-border-s); }
+    .book-carousel { position:relative; overflow:clip; border:1px solid var(--gold-border-s); }
     .book-carousel-track { display:flex; transition:transform 0.45s cubic-bezier(0.4,0,0.2,1); }
     .book-slide { min-width:100%; display:flex; align-items:stretch; }
 
@@ -227,7 +226,7 @@
     .chapter-pull { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(14px,2vw,17px); color:var(--gold); line-height:1.6; border-left:3px solid var(--gold-border-s); padding-left:20px; margin-bottom:24px; }
     .chapter-desc { font-size:14px; line-height:1.8; color:var(--ivory-muted); }
 
-    .slide-cta { width:100%; min-height:400px; background:linear-gradient(135deg, #0f0e0a 0%, #0a0a0a 100%); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:52px 48px; position:relative; overflow:hidden; }
+    .slide-cta { width:100%; min-height:400px; background:linear-gradient(135deg, #0f0e0a 0%, #0a0a0a 100%); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:52px 48px; position:relative; overflow:visible; }
     .slide-cta::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:400px; height:400px; background:radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%); pointer-events:none; }
     .slide-cta::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent, var(--gold), transparent); }
     .cta-kicker { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
@@ -237,7 +236,7 @@
     .cta-price { font-family:'DM Mono',monospace; font-size:28px; font-weight:500; color:var(--gold); }
     .cta-price-desc { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
     .slide-cover, .slide-chapter, .slide-cta { position:relative; z-index:auto; }
-    .btn-get-book { display:inline-flex; align-items:center; justify-content:center; background:var(--gold); color:var(--onyx); font-family:'DM Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; padding:14px 32px; min-height:48px; text-decoration:none; transition:background 0.2s, transform 0.2s; pointer-events:auto !important; touch-action:manipulation !important; position:relative; z-index:999999 !important; }
+    .btn-get-book { display:inline-flex; align-items:center; justify-content:center; background:var(--gold); color:var(--onyx); font-family:'DM Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; padding:14px 32px; min-height:48px; text-decoration:none; transition:background 0.2s, transform 0.2s; pointer-events:auto !important; touch-action:manipulation !important; }
     .btn-get-book:hover { background:var(--gold-light); transform:translateY(-2px); }
 
     .carousel-controls { display:flex; align-items:center; justify-content:space-between; padding:14px 20px; background:rgba(201,168,76,0.03); border-top:1px solid var(--gold-border); }
@@ -288,13 +287,34 @@
     .footer-mission { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:rgba(201,168,76,0.4); }
 
     /* ══ RESPONSIVE ══ */
-    @media (max-width:900px) { .footer-grid { grid-template-columns:1fr; gap:48px; } footer { padding:60px 24px 40px; } }
-    @media (max-width:640px) { .footer-bottom { flex-direction:column; text-align:center; } }
+    html, body { max-width:100%; overflow-x:hidden; }
+
+    @media (max-width:900px) {
+      .nav { padding:18px 20px; }
+      .footer-grid { grid-template-columns:1fr; gap:48px; }
+      footer { padding:60px 20px 40px; }
+    }
+    @media (max-width:640px) {
+      .footer-bottom { flex-direction:column; text-align:center; }
+    }
     @media (max-width:600px) {
-      .slide-cover, .slide-chapter, .slide-cta { padding:36px 24px; min-height:360px; }
-      .cover-stats { gap:20px; }
-      .signature-box { padding:32px 20px; }
-      .book-section, .faq-section-wrap, .article-container { padding-left:20px; padding-right:20px; }
+      .article-container { padding:40px 16px 0; }
+      .book-section { margin:48px auto; padding:0 16px; }
+      .faq-section-wrap { padding:0 16px; padding-top:48px; }
+      .signature-wrap { padding:40px 16px 80px; }
+      .slide-cover, .slide-chapter, .slide-cta { padding:28px 20px; min-height:auto; }
+      .slide-cover::before { font-size:60px; }
+      .cover-title { font-size:52px; }
+      .cover-stats { gap:16px; }
+      .signature-box { padding:28px 16px; }
+      .hero-inner { padding:0 16px; }
+      .post-content { font-size:15px; }
+      .book-section-label { font-size:9px; }
+      .chapter-pull { font-size:13px; }
+      .chapter-desc { font-size:13px; }
+      .cta-sub { font-size:13px; }
+      .footer-grid { padding-left:0; padding-right:0; }
+      .btn-get-book { width:100%; justify-content:center; }
     }
   </style>
 </head>
@@ -476,7 +496,7 @@
                 <span class="cta-price">$29.90</span>
                 <span class="cta-price-desc">One-time · Instant access</span>
               </div>
-              <a href="/book.html" class="btn-get-book" style="pointer-events:auto !important; touch-action:manipulation !important; position:relative; z-index:999999 !important; display:inline-flex;">Get the Manifesto →</a>
+              <a href="/book.html" class="btn-get-book" style="pointer-events:auto !important; touch-action:manipulation !important;">Get the Manifesto →</a>
             </div>
           </div>
 
@@ -497,6 +517,15 @@
           </div>
         </div>
       </div><!-- /carousel -->
+    </div>
+
+    <!-- Standalone CTA — works on all mobile browsers -->
+    <div style="max-width:800px; margin:0 auto; padding:0 24px 0; text-align:center;">
+      <a href="/book.html"
+         style="display:block; width:100%; background:var(--gold); color:#0a0a0a; font-family:'DM Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; padding:18px 24px; text-decoration:none; pointer-events:auto !important; touch-action:manipulation !important; -webkit-tap-highlight-color:rgba(201,168,76,0.4); box-sizing:border-box; margin-bottom:8px;">
+        GET THE CRICKETS MANIFESTO &rarr;
+      </a>
+      <p style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-top:10px;">$29.90 &middot; Digital PDF &middot; Instant Access</p>
     </div>
 
     <!-- ══ FAQ ══ -->
