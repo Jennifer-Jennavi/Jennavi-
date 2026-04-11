@@ -152,7 +152,7 @@
       padding-bottom: 64px;
       background: linear-gradient(160deg, #0a0a0a 0%, #0f0e0b 50%, #0a0a09 100%);
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
     .article-hero::before {
       content: '';
@@ -170,8 +170,8 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
-    .hero-inner { max-width:800px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
-    .breadcrumb-nav { display:flex; align-items:center; gap:8px; margin-bottom:40px; flex-wrap:wrap; }
+    .hero-inner { max-width:800px; margin:0 auto; padding:0 24px; position:relative; z-index:auto; }
+    .breadcrumb-nav { display:flex; align-items:center; gap:8px; margin-bottom:40px; flex-wrap:wrap; position:static; }
     .breadcrumb-nav a, .breadcrumb-nav span { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; }
     .breadcrumb-nav a { color:var(--gold); }
     .breadcrumb-nav a:hover { text-decoration:underline; }
@@ -236,9 +236,8 @@
     .cta-price-row { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:28px; flex-wrap:wrap; }
     .cta-price { font-family:'DM Mono',monospace; font-size:28px; font-weight:500; color:var(--gold); }
     .cta-price-desc { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
-    .slide-cover, .slide-chapter, .slide-cta { position:relative; z-index:1; }
-    .slide-cover *, .slide-chapter *, .slide-cta * { position:relative; z-index:2; }
-    .btn-get-book { display:inline-block; background:var(--gold); color:var(--onyx); font-family:'DM Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; padding:14px 32px; text-decoration:none; transition:background 0.2s, transform 0.2s; min-height:48px; display:inline-flex; align-items:center; justify-content:center; }
+    .slide-cover, .slide-chapter, .slide-cta { position:relative; z-index:auto; }
+    .btn-get-book { display:inline-flex; align-items:center; justify-content:center; background:var(--gold); color:var(--onyx); font-family:'DM Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; padding:14px 32px; min-height:48px; text-decoration:none; transition:background 0.2s, transform 0.2s; pointer-events:auto !important; touch-action:manipulation !important; position:relative; z-index:999999 !important; }
     .btn-get-book:hover { background:var(--gold-light); transform:translateY(-2px); }
 
     .carousel-controls { display:flex; align-items:center; justify-content:space-between; padding:14px 20px; background:rgba(201,168,76,0.03); border-top:1px solid var(--gold-border); }
@@ -334,7 +333,7 @@
   <header class="article-hero">
     <div class="hero-inner">
       <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-        <a href="/">Home</a>
+        <a href="/" style="color:var(--gold); pointer-events:auto !important; touch-action:manipulation !important; position:relative; z-index:999999 !important;"><span>Home</span></a>
         <span class="sep">/</span>
         <a href="/insights/why-your-linkedin-is-active-but-clients-are-not-coming.html">Insights</a>
         <span class="sep">/</span>
@@ -477,7 +476,7 @@
                 <span class="cta-price">$29.90</span>
                 <span class="cta-price-desc">One-time · Instant access</span>
               </div>
-              <a href="/book.html" class="btn-get-book">Get the Manifesto →</a>
+              <a href="/book.html" class="btn-get-book" style="pointer-events:auto !important; touch-action:manipulation !important; position:relative; z-index:999999 !important; display:inline-flex;">Get the Manifesto →</a>
             </div>
           </div>
 
