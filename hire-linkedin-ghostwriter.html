@@ -1449,7 +1449,7 @@ var flwCompleted = {};
 function showFlwForm(tier, amount, description){
   var block = document.getElementById('flw-block-' + tier);
   if (!block) return;
-  if (typeof window.pauseAllCarousels === 'function') window.pauseAllCarousels(180000);
+  if (typeof window.holdAllCarousels === 'function') window.holdAllCarousels();
   block.innerHTML =
     '<div class="flw-capture">' +
       '<input type="text" id="flw-name-' + tier + '" placeholder="Your full name" autocomplete="name">' +
@@ -1464,6 +1464,7 @@ function showFlwForm(tier, amount, description){
 function hideFlwForm(tier, amount, description){
   var block = document.getElementById('flw-block-' + tier);
   if (!block) return;
+  if (typeof window.releaseAllCarousels === 'function') window.releaseAllCarousels();
   var label = tier === 'taster' ? '$' + amount : '$' + amount + '/mo';
   block.innerHTML = '<button class="pricing-pay" onclick="showFlwForm(\'' + tier + '\',' + amount + ',\'' + description.replace(/'/g,"\\'") + '\')">Pay Now &middot; ' + label + '</button>';
 }
@@ -1499,6 +1500,7 @@ function initFlwPayment(tier, amount, description){
       var block = document.getElementById('flw-block-' + tier);
       var wasSuccessful = data && (data.status === 'successful' || data.status === 'completed');
       var waMsg, waHref;
+      if (typeof window.releaseAllCarousels === 'function') window.releaseAllCarousels();
 
       if (wasSuccessful) {
         flwCompleted[tier] = true;
@@ -1558,6 +1560,7 @@ function initFlwPayment(tier, amount, description){
       }
     },
     onclose: function(){
+      if (typeof window.releaseAllCarousels === 'function') window.releaseAllCarousels();
       if (!flwCompleted[tier] && typeof gtag === 'function') {
         gtag('event', 'checkout_abandoned', { tier: tier, value: amount, currency: 'USD' });
       }
@@ -1594,10 +1597,16 @@ function initFlwPayment(tier, amount, description){
   window.pauseAllCarousels = function(ms){
     for (var k in carousels) { carousels[k].pausedUntil = Date.now() + ms; }
   };
+  window.holdAllCarousels = function(){
+    for (var k in carousels) { carousels[k].held = true; }
+  };
+  window.releaseAllCarousels = function(){
+    for (var k in carousels) { carousels[k].held = false; carousels[k].pausedUntil = Date.now() + 1000; }
+  };
   function initCarousel(id){
     var track = document.getElementById(id);
     if (!track) return;
-    var state = { pausedUntil: 0, dir: 1 };
+    var state = { pausedUntil: 0, dir: 1, held: false };
     carousels[id] = state;
 
     function cardWidth(){
@@ -1611,6 +1620,7 @@ function initFlwPayment(tier, amount, description){
       track.scrollBy({ left: n * cardWidth(), behavior: 'smooth' });
     }
     function autoAdvance(){
+      if (state.held) return;
       if (Date.now() < state.pausedUntil) return;
       var maxScroll = track.scrollWidth - track.clientWidth;
       if (maxScroll <= 4) return;
@@ -1623,7 +1633,7 @@ function initFlwPayment(tier, amount, description){
     }
     setInterval(autoAdvance, 4200);
 
-    function pause(){ state.pausedUntil = Date.now() + 6000; }
+    function pause(){ state.pausedUntil = Date.now() + 120000; }
 
     var isDown = false, startX = 0, startScroll = 0, moved = false;
     track.addEventListener('pointerdown', function(e){
@@ -1631,6 +1641,7 @@ function initFlwPayment(tier, amount, description){
       startX = e.clientX;
       startScroll = track.scrollLeft;
       track.setPointerCapture(e.pointerId);
+      pause();
     });
     track.addEventListener('pointermove', function(e){
       if (!isDown) return;
@@ -1641,7 +1652,7 @@ function initFlwPayment(tier, amount, description){
     function endDrag(){
       if (!isDown) return;
       isDown = false;
-      if (moved) pause();
+      pause();
     }
     track.addEventListener('pointerup', endDrag);
     track.addEventListener('pointerleave', endDrag);
