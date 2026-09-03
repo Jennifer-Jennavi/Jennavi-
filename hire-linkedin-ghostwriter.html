@@ -1394,6 +1394,7 @@ function sendTierCricketsEmail(name, email, tierLabel, seats, amount, retryCount
   retryCount = retryCount || 0;
   if (!email) return;
   seats = seats || 1;
+  var firstName = (name || '').trim().split(/\s+/)[0] || (name || '').trim() || '';
   var tierDisplay = seats > 1 ? (tierLabel + ' Tier (' + seats + ' Profiles)') : (tierLabel + ' Tier');
   if (typeof emailjs === 'undefined') {
     if (retryCount < 5) {
@@ -1405,11 +1406,11 @@ function sendTierCricketsEmail(name, email, tierLabel, seats, amount, retryCount
   }
   try { emailjs.init({publicKey: EJS_PUBLIC_KEY_HIRE}); } catch(e) {}
   var params = {
-    to_name: name || 'Founder',
+    to_name: firstName || 'Founder',
     to_email: email,
     pdf_link: TIER_PDF_LINK,
-    subject: 'Your CRICKETS Playbook is Here, ' + (name || 'Founder') + '!',
-    html_content: buildTierCricketsEmailHtml(name, TIER_PDF_LINK, tierDisplay)
+    subject: 'Your CRICKETS Playbook is Here, ' + (firstName || 'Founder') + '!',
+    html_content: buildTierCricketsEmailHtml(firstName, TIER_PDF_LINK, tierDisplay)
   };
   emailjs.send(EJS_SERVICE_ID_HIRE, EJS_TEMPLATE_ID_HIRE, params, {publicKey: EJS_PUBLIC_KEY_HIRE})
     .then(function(r){ console.log('Tier CRICKETS email sent:', r.status); })
@@ -1422,6 +1423,7 @@ function sendGeneralConfirmationEmail(name, email, tierLabel, seats, amount, ret
   retryCount = retryCount || 0;
   if (!email) return;
   seats = seats || 1;
+  var firstName = (name || '').trim().split(/\s+/)[0] || (name || '').trim() || '';
   var tierDisplay = seats > 1 ? (tierLabel + ' Tier (' + seats + ' Profiles)') : (tierLabel + ' Tier');
   var amountLine = amount ? ('$' + amount) : '';
   if (typeof emailjs === 'undefined') {
@@ -1434,11 +1436,11 @@ function sendGeneralConfirmationEmail(name, email, tierLabel, seats, amount, ret
   }
   try { emailjs.init({publicKey: EJS_PUBLIC_KEY_HIRE}); } catch(e) {}
   var params = {
-    to_name: name || 'Founder',
+    to_name: firstName || 'Founder',
     to_email: email,
     pdf_link: '',
-    subject: 'Welcome to Jennavi, ' + (name || 'Founder') + '! Your ' + tierDisplay + ' is Confirmed',
-    html_content: buildGeneralConfirmationEmailHtml(name, tierDisplay, amountLine)
+    subject: 'Welcome to Jennavi, ' + (firstName || 'Founder') + '! Your ' + tierDisplay + ' is Confirmed',
+    html_content: buildGeneralConfirmationEmailHtml(firstName, tierDisplay, amountLine)
   };
   emailjs.send(EJS_SERVICE_ID_HIRE, EJS_TEMPLATE_ID_HIRE, params, {publicKey: EJS_PUBLIC_KEY_HIRE})
     .then(function(r){ console.log('General confirmation email sent:', r.status); })

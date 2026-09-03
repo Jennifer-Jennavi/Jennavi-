@@ -316,6 +316,13 @@ section{padding:104px 0;position:relative;}
 .pricing-cta:hover{border-color:var(--sage);color:var(--sage);}
 .pricing-pay{display:block;width:100%;text-align:center;padding:12px;background:var(--brass);color:#14100A;border-radius:3px;font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:0.05em;text-transform:uppercase;font-weight:500;transition:transform 0.2s;}
 .pricing-pay:hover{transform:translateY(-2px);}
+.seat-selector{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--ink);border:1px solid var(--line);border-radius:3px;padding:8px 10px;margin-bottom:14px;}
+.seat-label{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--parchment-faint);}
+.seat-controls{display:flex;align-items:center;gap:10px;}
+.seat-btn{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--brass-bright);font-family:'DM Mono',monospace;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,color 0.2s;}
+.seat-btn:hover{border-color:var(--brass);color:var(--brass);}
+.seat-btn:disabled{opacity:0.35;cursor:not-allowed;}
+.seat-count{font-family:'DM Mono',monospace;font-size:13px;color:var(--parchment);min-width:14px;text-align:center;}
 .flw-block{margin-top:0;}
 .flw-capture{display:flex;flex-direction:column;gap:8px;}
 .flw-capture input{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:3px;padding:11px 12px;color:var(--parchment);font-size:13px;}
@@ -507,7 +514,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
             <div class="intake-head">
               <span class="intake-title">Free LinkedIn Profile Audit</span>
             </div>
-            <p class="intake-sub">Jennifer will personally read your profile and tell you, in plain language, exactly why it's earning views but not replies. A real answer in your inbox within 24 hours. No pitch attached.</p>
+            <p class="intake-sub">Jennifer will personally read your profile and tell you, in plain language, exactly why it's earning views but not replies. You will get a real answer in your inbox within 24 hours. No pitch attached.</p>
             <form id="auditForm">
               <div class="intake-field"><label for="af-name">Name</label><input type="text" id="af-name" name="name" required autocomplete="name"></div>
               <div class="intake-field"><label for="af-email">Email</label><input type="email" id="af-email" name="email" required autocomplete="email"></div>
@@ -700,8 +707,9 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <h3 class="pricing-name">Taster</h3>
           <p class="pricing-tagline">High-Impact Profile Audit</p>
           <p class="pricing-who">For the founder who wants one honest expert to diagnose what's broken before committing to a retainer.</p>
-          <p class="pricing-price"><sup>$</sup>100</p>
+          <p class="pricing-price" id="price-taster"><sup>$</sup>100</p>
           <span class="pricing-cadence">One-time investment</span>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('taster',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-taster">1</span><button type="button" class="seat-btn" onclick="changeSeats('taster',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>Full LinkedIn profile audit</li>
@@ -718,8 +726,9 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <h3 class="pricing-name">Starter</h3>
           <p class="pricing-tagline">LinkedIn Content Retainer</p>
           <p class="pricing-who">For the founder ready to show up consistently who doesn't have time to write in their own voice every month.</p>
-          <p class="pricing-price"><sup>$</sup>200</p>
+          <p class="pricing-price" id="price-starter"><sup>$</sup>200</p>
           <span class="pricing-cadence">Per month</span>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('starter',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-starter">1</span><button type="button" class="seat-btn" onclick="changeSeats('starter',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>8 posts a month, in your voice</li>
@@ -735,8 +744,9 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <h3 class="pricing-name">Growth</h3>
           <p class="pricing-tagline">Serious Authority Building</p>
           <p class="pricing-who">For the founder who's tried posting, got some traction, and can't yet crack consistency or conversion.</p>
-          <p class="pricing-price"><sup>$</sup>400</p>
+          <p class="pricing-price" id="price-growth"><sup>$</sup>400</p>
           <span class="pricing-cadence">Per month</span>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('growth',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-growth">1</span><button type="button" class="seat-btn" onclick="changeSeats('growth',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>12 posts a month</li>
@@ -753,8 +763,9 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <h3 class="pricing-name">Authority</h3>
           <p class="pricing-tagline">Full LinkedIn Management</p>
           <p class="pricing-who">For the founder serious about being known in their industry, who wants someone thinking about their positioning full time.</p>
-          <p class="pricing-price"><sup>$</sup>600</p>
+          <p class="pricing-price" id="price-authority"><sup>$</sup>600</p>
           <span class="pricing-cadence">Per month</span>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('authority',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-authority">1</span><button type="button" class="seat-btn" onclick="changeSeats('authority',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>16 posts a month, written in your voice</li>
@@ -771,8 +782,9 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <h3 class="pricing-name">VIP</h3>
           <p class="pricing-tagline">The Full Executive Package</p>
           <p class="pricing-who">For the founder who can't afford to be invisible. Maximum access to Jennifer. Limited to 3 clients.</p>
-          <p class="pricing-price"><sup>$</sup>800</p>
+          <p class="pricing-price" id="price-vip"><sup>$</sup>800</p>
           <span class="pricing-cadence">Per month</span>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('vip',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-vip">1</span><button type="button" class="seat-btn" onclick="changeSeats('vip',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>20 posts plus a monthly newsletter</li>
@@ -790,8 +802,9 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <h3 class="pricing-name">Executive</h3>
           <p class="pricing-tagline">The Complete Authority System</p>
           <p class="pricing-who">For the founder building a legacy, not just a company. Maximum output. Limited to 2 clients.</p>
-          <p class="pricing-price"><sup>$</sup>1,000</p>
+          <p class="pricing-price" id="price-executive"><sup>$</sup>1,000</p>
           <span class="pricing-cadence">Per month</span>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('executive',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-executive">1</span><button type="button" class="seat-btn" onclick="changeSeats('executive',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>25 posts, 2 newsletters, 1 blog article a month</li>
@@ -1400,15 +1413,72 @@ if (newsletterForm) {
 
 /* ============ FLUTTERWAVE PAYMENTS ============ */
 var FLW_TIER_LABELS = {taster:'Taster',starter:'Starter',growth:'Growth',authority:'Authority',vip:'VIP',executive:'Executive'};
+var TIER_BASE_PRICE = {taster:100,starter:200,growth:400,authority:600,vip:800,executive:1000};
+var TIER_DESCRIPTIONS = {
+  taster:'Taster Tier, One-Time Profile Audit',
+  starter:'Starter Tier, Monthly Retainer',
+  growth:'Growth Tier, Monthly Retainer',
+  authority:'Authority Tier, Monthly Retainer',
+  vip:'VIP Tier, Monthly Retainer',
+  executive:'Executive Tier, Monthly Retainer'
+};
+var TIER_WA_TEXT = {
+  taster:'the Taster Profile Audit',
+  starter:'the Starter tier',
+  growth:'the Growth tier',
+  authority:'the Authority tier',
+  vip:'the VIP tier',
+  executive:'the Executive tier'
+};
+var MAX_SEATS = 10;
+var seatCounts = {taster:1,starter:1,growth:1,authority:1,vip:1,executive:1};
+
+function changeSeats(tier, delta){
+  var base = TIER_BASE_PRICE[tier];
+  if (!base) return;
+  var next = (seatCounts[tier] || 1) + delta;
+  if (next < 1) next = 1;
+  if (next > MAX_SEATS) next = MAX_SEATS;
+  seatCounts[tier] = next;
+
+  var countEl = document.getElementById('seat-count-' + tier);
+  if (countEl) countEl.textContent = next;
+
+  var total = base * next;
+  var priceEl = document.getElementById('price-' + tier);
+  if (priceEl) priceEl.innerHTML = '<sup>$</sup>' + total.toLocaleString();
+
+  var desc = next > 1 ? (TIER_DESCRIPTIONS[tier] + ', ' + next + ' Profiles') : TIER_DESCRIPTIONS[tier];
+  var payBtn = document.querySelector('#flw-block-' + tier + ' .pricing-pay');
+  if (payBtn) {
+    var label = tier === 'taster' ? ('$' + total.toLocaleString()) : ('$' + total.toLocaleString() + '/mo');
+    payBtn.setAttribute('onclick', "showFlwForm('" + tier + "'," + total + ",'" + desc.replace(/'/g,"\\'") + "')");
+    payBtn.textContent = 'Pay Now \u00b7 ' + label;
+  }
+
+  var ctaLink = document.querySelector('#flw-block-' + tier).closest('.pricing-card').querySelector('.pricing-cta');
+  if (ctaLink) {
+    var seatPhrase = next > 1 ? (next + ' profiles on ') : '';
+    var priceLabel = tier === 'taster' ? ('$' + total.toLocaleString()) : ('$' + total.toLocaleString() + ' per month');
+    var waMsg = 'Hi Jennifer, I am interested in ' + seatPhrase + TIER_WA_TEXT[tier] + ' at ' + priceLabel + '. Can we discuss?';
+    ctaLink.href = 'https://wa.me/2349024680769?text=' + encodeURIComponent(waMsg);
+  }
+
+  var decBtns = document.querySelectorAll('#seat-count-' + tier);
+  if (decBtns.length && decBtns[0].previousElementSibling) {
+    decBtns[0].previousElementSibling.disabled = (next <= 1);
+  }
+}
 
 /* ============ EMAILJS: CLIENT CONFIRMATION EMAILS ============ */
 var EJS_PUBLIC_KEY_HIRE='XIy6yIQorZRwYz0xf',EJS_SERVICE_ID_HIRE='service_10a5m5e',EJS_TEMPLATE_ID_HIRE='template_g32mptd';
 function buildAuditReceiptEmailHtml(name, linkedinUrl){
-  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;padding:0;background:#0B0D12;font-family:Georgia,serif;}.w{max-width:600px;margin:0 auto;background:#12151C;border:1px solid rgba(201,168,76,0.3);}.h{background:#0B0D12;padding:28px 36px 20px;border-bottom:2px solid #C9A84C;text-align:center;}.lg{font-size:24px;font-weight:700;color:#C9A84C;letter-spacing:0.15em;text-transform:uppercase;}.tg{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.4);letter-spacing:0.18em;text-transform:uppercase;display:block;margin-top:6px;}.b{padding:32px 36px;}.gr{font-size:14px;color:rgba(243,238,227,0.75);line-height:1.8;margin-bottom:22px;}.pb{background:#0B0D12;border:1px solid rgba(201,168,76,0.25);border-radius:6px;padding:16px 20px;margin-bottom:22px;font-size:12.5px;color:rgba(243,238,227,0.6);word-break:break-all;}.ct{text-align:center;padding:8px 0 26px;}.cb{display:inline-block;padding:16px 40px;background:#C9A84C;color:#0B0D12;font-family:Courier New,monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;}.hr{border:none;border-top:1px solid rgba(201,168,76,0.15);margin:24px 0;}.dg{font-size:14px;color:rgba(243,238,227,0.7);line-height:1.85;margin-bottom:0;}.sn2{font-size:15px;font-weight:700;color:#F3EEE3;display:block;margin-bottom:3px;}.st{font-family:Courier New,monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,168,76,0.7);}.ft{background:#0B0D12;padding:18px 36px;border-top:1px solid rgba(201,168,76,0.15);text-align:center;}.ft p{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.25);letter-spacing:0.07em;line-height:1.8;margin:0;}.ft a{color:rgba(201,168,76,0.5);text-decoration:none;}</style></head><body><div class="w"><div class="h"><span class="lg">JENNAVI</span> <span class="tg">LinkedIn Ghostwriting for Founders</span></div><div class="b"><p class="gr">Hi ' + (name || 'there') + ',<br><br>Your profile just landed in front of me, not a queue, not a template. I read every submission myself, and I\'m looking at yours within the next 24 hours.</p><div class="pb">' + (linkedinUrl || 'Your submitted profile') + '</div><p class="dg">I\'m looking for the same three things I look for on every profile I audit: what makes a stranger stop scrolling, what makes them trust you, and what\'s quietly costing you the conversation you should already be having. You\'ll hear from me directly, in plain language, no jargon.</p><div class="ct"><a href="https://jennavi.co/hire-linkedin-ghostwriter.html" class="cb">See How I Can Help &middot; 6 Tiers</a></div><hr class="hr"><p class="dg">If you\'d rather start fixing things yourself tonight, <a href="https://jennavi.co/book.html" style="color:#C9A84C;">CRICKETS</a> is the exact system behind everything I do, $9.99, yours to keep.</p><hr class="hr"><p style="font-size:13px;color:rgba(243,238,227,0.5);line-height:1.85;font-style:italic;margin-bottom:0;">Anything urgent before then? Message me directly on WhatsApp at +234 902 468 0769. I read those myself too.</p><br><span class="sn2">Jennifer Omaliko</span> <span class="st">Founder and CEO, Jennavi</span></div><div class="ft"><p>jennavi.co &middot; jennifer@jennavi.co &middot; +234 902 468 0769<br><a href="https://jennavi.co">jennavi.co</a></p><p style="margin-top:8px;font-size:8px;">&copy; 2026 Jennavi &middot; All Rights Reserved</p></div></div></body></html>';
+  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;padding:0;background:#0B0D12;font-family:Georgia,serif;}.w{max-width:600px;margin:0 auto;background:#12151C;border:1px solid rgba(201,168,76,0.3);}.h{background:#0B0D12;padding:28px 36px 20px;border-bottom:2px solid #C9A84C;text-align:center;}.lg{font-size:24px;font-weight:700;color:#C9A84C;letter-spacing:0.15em;text-transform:uppercase;}.tg{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.4);letter-spacing:0.18em;text-transform:uppercase;display:block;margin-top:6px;}.b{padding:32px 36px;}.gr{font-size:14px;color:rgba(243,238,227,0.75);line-height:1.8;margin-bottom:22px;}.ct{text-align:center;padding:8px 0 26px;}.cb{display:inline-block;padding:16px 40px;background:#C9A84C;color:#0B0D12;font-family:Courier New,monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;}.hr{border:none;border-top:1px solid rgba(201,168,76,0.15);margin:24px 0;}.dg{font-size:14px;color:rgba(243,238,227,0.7);line-height:1.85;margin-bottom:0;}.sn2{font-size:15px;font-weight:700;color:#F3EEE3;display:block;margin-bottom:3px;}.st{font-family:Courier New,monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,168,76,0.7);}.ft{background:#0B0D12;padding:18px 36px;border-top:1px solid rgba(201,168,76,0.15);text-align:center;}.ft p{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.25);letter-spacing:0.07em;line-height:1.8;margin:0;}.ft a{color:rgba(201,168,76,0.5);text-decoration:none;}</style></head><body><div class="w"><div class="h"><span class="lg">JENNAVI</span> <span class="tg">LinkedIn Ghostwriting for Founders</span></div><div class="b"><p class="gr">Hi ' + (name || 'there') + ',<br><br>I received your <a href="' + (linkedinUrl || '#') + '" style="color:#C9A84C;text-decoration:underline;" target="_blank" rel="noopener noreferrer">LinkedIn</a> Audit request, and I\'m currently reviewing your profile.</p><p class="gr">I\'m looking at what\'s working, what could be better, and what may be stopping the right people from reaching out to you.</p><p class="gr">You\'ll receive your feedback from me within the next 24 hours.<br>My feedback will be clear, honest, and easy to use.</p><p class="gr" style="margin-bottom:0;">Speak soon,</p><div class="ct"><a href="https://jennavi.co/hire-linkedin-ghostwriter.html" class="cb">See How I Can Help &middot; 6 Tiers</a></div><hr class="hr"><p class="dg">If you\'d rather start fixing things yourself tonight, <a href="https://jennavi.co/book.html" style="color:#C9A84C;">CRICKETS</a> is the exact system behind everything I do, $9.99, yours to keep.</p><hr class="hr"><p style="font-size:13px;color:rgba(243,238,227,0.5);line-height:1.85;font-style:italic;margin-bottom:0;">Anything urgent before then? Message me directly on WhatsApp at +234 902 468 0769. I read those myself too.</p><br><span class="sn2">Jennifer Omaliko</span> <span class="st">Founder and CEO, Jennavi</span></div><div class="ft"><p>jennavi.co &middot; jennifer@jennavi.co &middot; +234 902 468 0769<br><a href="https://jennavi.co">jennavi.co</a></p><p style="margin-top:8px;font-size:8px;">&copy; 2026 Jennavi &middot; All Rights Reserved</p></div></div></body></html>';
 }
 function sendAuditReceiptEmail(name, email, linkedinUrl, retryCount){
   retryCount = retryCount || 0;
   if (!email) return;
+  var firstName = (name || '').trim().split(/\s+/)[0] || (name || '').trim() || '';
   if (typeof emailjs === 'undefined') {
     if (retryCount < 5) {
       setTimeout(function(){ sendAuditReceiptEmail(name, email, linkedinUrl, retryCount+1); }, 500);
@@ -1419,11 +1489,11 @@ function sendAuditReceiptEmail(name, email, linkedinUrl, retryCount){
   }
   try { emailjs.init({publicKey: EJS_PUBLIC_KEY_HIRE}); } catch(e) {}
   var params = {
-    to_name: name || 'Founder',
+    to_name: firstName || 'Founder',
     to_email: email,
     pdf_link: '',
-    subject: 'Got It, ' + (name || 'Founder') + '! Jennifer is Reviewing Your Profile',
-    html_content: buildAuditReceiptEmailHtml(name, linkedinUrl)
+    subject: 'Got It, ' + (firstName || 'Founder') + '! Jennifer is Reviewing Your Profile',
+    html_content: buildAuditReceiptEmailHtml(firstName, linkedinUrl)
   };
   emailjs.send(EJS_SERVICE_ID_HIRE, EJS_TEMPLATE_ID_HIRE, params, {publicKey: EJS_PUBLIC_KEY_HIRE})
     .then(function(r){ console.log('Audit receipt email sent:', r.status); })
@@ -1433,12 +1503,15 @@ var TIER_PDF_LINK = 'https://drive.google.com/file/d/1_83RcBHf08Vn8wfNlI8xR_WBah
 function buildTierCricketsEmailHtml(name, pdfLink, tierLabel) {
   return '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;padding:0;background:#0B0D12;font-family:Georgia,serif;}.w{max-width:600px;margin:0 auto;background:#12151C;border:1px solid rgba(201,168,76,0.3);}.h{background:#0B0D12;padding:28px 36px 20px;border-bottom:2px solid #C9A84C;text-align:center;}.lg{font-size:24px;font-weight:700;color:#C9A84C;letter-spacing:0.15em;text-transform:uppercase;}.tg{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.4);letter-spacing:0.18em;text-transform:uppercase;display:block;margin-top:6px;}.b{padding:32px 36px;}.gr{font-size:14px;color:rgba(243,238,227,0.75);line-height:1.8;margin-bottom:20px;}.ct{text-align:center;padding:8px 0 26px;}.cb{display:inline-block;padding:16px 40px;background:#C9A84C;color:#0B0D12;font-family:Courier New,monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;}.sub{font-size:13px;color:rgba(243,238,227,0.5);text-align:center;margin:0 0 28px;line-height:1.7;}.hr{border:none;border-top:1px solid rgba(201,168,76,0.15);margin:28px 0;}.dg{font-size:14px;color:rgba(243,238,227,0.7);line-height:1.85;margin-bottom:0;}.sn2{font-size:15px;font-weight:700;color:#F3EEE3;display:block;margin-bottom:3px;}.st{font-family:Courier New,monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,168,76,0.7);}.ft{background:#0B0D12;padding:18px 36px;border-top:1px solid rgba(201,168,76,0.15);text-align:center;}.ft p{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.25);letter-spacing:0.07em;line-height:1.8;margin:0;}.ft a{color:rgba(201,168,76,0.5);text-decoration:none;}</style></head><body><div class="w"><div class="h"><span class="lg">JENNAVI</span> <span class="tg">LinkedIn Ghostwriting for Founders</span></div><div class="b"><p class="gr">Hi ' + (name || 'there') + ',<br><br>Thank you for joining the ' + tierLabel + ' tier. Your payment went through, and since CRICKETS is included free for ' + tierLabel + ' clients, your copy is ready right now.</p><div class="ct"><a href="' + pdfLink + '" class="cb">Download Your CRICKETS Copy &#8594;</a></div><p class="sub">Jennifer will personally reach out within 24 hours to get started.</p><hr class="hr"><p class="dg">In the meantime, feel free to read through CRICKETS, the exact positioning system behind Jennifer\'s own 873% LinkedIn growth, so you already know the language and framework she\'ll be using with you.</p><hr class="hr"><p class="rp" style="font-size:13px;color:rgba(243,238,227,0.5);line-height:1.85;margin-bottom:24px;">Questions in the meantime? Just reply to this email, or message her directly on WhatsApp at +234 902 468 0769. She reads every message herself.</p><span class="sn2">Jennifer Omaliko</span> <span class="st">Founder and CEO, Jennavi</span></div><div class="ft"><p>jennavi.co &middot; jennifer@jennavi.co &middot; +234 902 468 0769<br><a href="https://jennavi.co">jennavi.co</a></p><p style="margin-top:8px;font-size:8px;">&copy; 2026 Jennavi &middot; All Rights Reserved</p></div></div></body></html>';
 }
-function sendTierCricketsEmail(name, email, tierLabel, retryCount) {
+function sendTierCricketsEmail(name, email, tierLabel, seats, amount, retryCount) {
   retryCount = retryCount || 0;
   if (!email) return;
+  seats = seats || 1;
+  var firstName = (name || '').trim().split(/\s+/)[0] || (name || '').trim() || '';
+  var tierDisplay = seats > 1 ? (tierLabel + ' Tier (' + seats + ' Profiles)') : (tierLabel + ' Tier');
   if (typeof emailjs === 'undefined') {
     if (retryCount < 5) {
-      setTimeout(function(){ sendTierCricketsEmail(name, email, tierLabel, retryCount+1); }, 500);
+      setTimeout(function(){ sendTierCricketsEmail(name, email, tierLabel, seats, amount, retryCount+1); }, 500);
     } else {
       console.error('EmailJS failed to load after 5 attempts. Tier CRICKETS email was not sent for:', email);
     }
@@ -1446,25 +1519,29 @@ function sendTierCricketsEmail(name, email, tierLabel, retryCount) {
   }
   try { emailjs.init({publicKey: EJS_PUBLIC_KEY_HIRE}); } catch(e) {}
   var params = {
-    to_name: name || 'Founder',
+    to_name: firstName || 'Founder',
     to_email: email,
     pdf_link: TIER_PDF_LINK,
-    subject: 'Your CRICKETS Playbook is Here, ' + (name || 'Founder') + '!',
-    html_content: buildTierCricketsEmailHtml(name, TIER_PDF_LINK, tierLabel)
+    subject: 'Your CRICKETS Playbook is Here, ' + (firstName || 'Founder') + '!',
+    html_content: buildTierCricketsEmailHtml(firstName, TIER_PDF_LINK, tierDisplay)
   };
   emailjs.send(EJS_SERVICE_ID_HIRE, EJS_TEMPLATE_ID_HIRE, params, {publicKey: EJS_PUBLIC_KEY_HIRE})
     .then(function(r){ console.log('Tier CRICKETS email sent:', r.status); })
     .catch(function(e){ console.error('Tier CRICKETS email error:', e); });
 }
-function buildGeneralConfirmationEmailHtml(name, tierLabel) {
-  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;padding:0;background:#0B0D12;font-family:Georgia,serif;}.w{max-width:600px;margin:0 auto;background:#12151C;border:1px solid rgba(201,168,76,0.3);}.h{background:#0B0D12;padding:28px 36px 20px;border-bottom:2px solid #C9A84C;text-align:center;}.lg{font-size:24px;font-weight:700;color:#C9A84C;letter-spacing:0.15em;text-transform:uppercase;}.tg{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.4);letter-spacing:0.18em;text-transform:uppercase;display:block;margin-top:6px;}.b{padding:32px 36px;}.gr{font-size:14px;color:rgba(243,238,227,0.75);line-height:1.8;margin-bottom:20px;}.hr{border:none;border-top:1px solid rgba(201,168,76,0.15);margin:28px 0;}.dg{font-size:14px;color:rgba(243,238,227,0.7);line-height:1.85;margin-bottom:0;}.sn2{font-size:15px;font-weight:700;color:#F3EEE3;display:block;margin-bottom:3px;}.st{font-family:Courier New,monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,168,76,0.7);}.rp{font-size:13px;color:rgba(243,238,227,0.5);line-height:1.85;margin-bottom:0;}.ft{background:#0B0D12;padding:18px 36px;border-top:1px solid rgba(201,168,76,0.15);text-align:center;}.ft p{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.25);letter-spacing:0.07em;line-height:1.8;margin:0;}.ft a{color:rgba(201,168,76,0.5);text-decoration:none;}</style></head><body><div class="w"><div class="h"><span class="lg">JENNAVI</span> <span class="tg">LinkedIn Ghostwriting for Founders</span></div><div class="b"><p class="gr">Hi ' + (name || 'there') + ',<br><br>Thank you for joining the ' + tierLabel + ' tier. Your payment went through successfully, and Jennifer will personally reach out within 24 hours to get started.</p><hr class="hr"><p class="dg">In the meantime, feel free to message her directly if you have any questions before your first session.</p><hr class="hr"><p class="rp">Reply to this email, or message her directly on WhatsApp at +234 902 468 0769. She reads every message herself.</p><br><span class="sn2">Jennifer Omaliko</span> <span class="st">Founder and CEO, Jennavi</span></div><div class="ft"><p>jennavi.co &middot; jennifer@jennavi.co &middot; +234 902 468 0769<br><a href="https://jennavi.co">jennavi.co</a></p><p style="margin-top:8px;font-size:8px;">&copy; 2026 Jennavi &middot; All Rights Reserved</p></div></div></body></html>';
+function buildGeneralConfirmationEmailHtml(name, tierLabel, amountLine) {
+  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;padding:0;background:#0B0D12;font-family:Georgia,serif;}.w{max-width:600px;margin:0 auto;background:#12151C;border:1px solid rgba(201,168,76,0.3);}.h{background:#0B0D12;padding:28px 36px 20px;border-bottom:2px solid #C9A84C;text-align:center;}.lg{font-size:24px;font-weight:700;color:#C9A84C;letter-spacing:0.15em;text-transform:uppercase;}.tg{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.4);letter-spacing:0.18em;text-transform:uppercase;display:block;margin-top:6px;}.b{padding:32px 36px;}.gr{font-size:14px;color:rgba(243,238,227,0.75);line-height:1.8;margin-bottom:20px;}.hr{border:none;border-top:1px solid rgba(201,168,76,0.15);margin:28px 0;}.dg{font-size:14px;color:rgba(243,238,227,0.7);line-height:1.85;margin-bottom:0;}.sn2{font-size:15px;font-weight:700;color:#F3EEE3;display:block;margin-bottom:3px;}.st{font-family:Courier New,monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,168,76,0.7);}.rp{font-size:13px;color:rgba(243,238,227,0.5);line-height:1.85;margin-bottom:0;}.ft{background:#0B0D12;padding:18px 36px;border-top:1px solid rgba(201,168,76,0.15);text-align:center;}.ft p{font-family:Courier New,monospace;font-size:9px;color:rgba(243,238,227,0.25);letter-spacing:0.07em;line-height:1.8;margin:0;}.ft a{color:rgba(201,168,76,0.5);text-decoration:none;}</style></head><body><div class="w"><div class="h"><span class="lg">JENNAVI</span> <span class="tg">LinkedIn Ghostwriting for Founders</span></div><div class="b"><p class="gr">Hi ' + (name || 'there') + ',<br><br>Thank you for joining the ' + tierLabel + '. Your payment' + (amountLine ? (' of ' + amountLine) : '') + ' went through successfully, and Jennifer will personally reach out within 24 hours to get started.</p><hr class="hr"><p class="dg">In the meantime, feel free to message her directly if you have any questions before your first session.</p><hr class="hr"><p class="rp">Reply to this email, or message her directly on WhatsApp at +234 902 468 0769. She reads every message herself.</p><br><span class="sn2">Jennifer Omaliko</span> <span class="st">Founder and CEO, Jennavi</span></div><div class="ft"><p>jennavi.co &middot; jennifer@jennavi.co &middot; +234 902 468 0769<br><a href="https://jennavi.co">jennavi.co</a></p><p style="margin-top:8px;font-size:8px;">&copy; 2026 Jennavi &middot; All Rights Reserved</p></div></div></body></html>';
 }
-function sendGeneralConfirmationEmail(name, email, tierLabel, retryCount) {
+function sendGeneralConfirmationEmail(name, email, tierLabel, seats, amount, retryCount) {
   retryCount = retryCount || 0;
   if (!email) return;
+  seats = seats || 1;
+  var firstName = (name || '').trim().split(/\s+/)[0] || (name || '').trim() || '';
+  var tierDisplay = seats > 1 ? (tierLabel + ' Tier (' + seats + ' Profiles)') : (tierLabel + ' Tier');
+  var amountLine = amount ? ('$' + amount) : '';
   if (typeof emailjs === 'undefined') {
     if (retryCount < 5) {
-      setTimeout(function(){ sendGeneralConfirmationEmail(name, email, tierLabel, retryCount+1); }, 500);
+      setTimeout(function(){ sendGeneralConfirmationEmail(name, email, tierLabel, seats, amount, retryCount+1); }, 500);
     } else {
       console.error('EmailJS failed to load after 5 attempts. General confirmation email was not sent for:', email);
     }
@@ -1472,11 +1549,11 @@ function sendGeneralConfirmationEmail(name, email, tierLabel, retryCount) {
   }
   try { emailjs.init({publicKey: EJS_PUBLIC_KEY_HIRE}); } catch(e) {}
   var params = {
-    to_name: name || 'Founder',
+    to_name: firstName || 'Founder',
     to_email: email,
     pdf_link: '',
-    subject: 'Welcome to Jennavi, ' + (name || 'Founder') + '! Your ' + tierLabel + ' Tier is Confirmed',
-    html_content: buildGeneralConfirmationEmailHtml(name, tierLabel)
+    subject: 'Welcome to Jennavi, ' + (firstName || 'Founder') + '! Your ' + tierDisplay + ' is Confirmed',
+    html_content: buildGeneralConfirmationEmailHtml(firstName, tierDisplay, amountLine)
   };
   emailjs.send(EJS_SERVICE_ID_HIRE, EJS_TEMPLATE_ID_HIRE, params, {publicKey: EJS_PUBLIC_KEY_HIRE})
     .then(function(r){ console.log('General confirmation email sent:', r.status); })
@@ -1487,7 +1564,7 @@ var flwCompleted = {};
 function showFlwForm(tier, amount, description){
   var block = document.getElementById('flw-block-' + tier);
   if (!block) return;
-  if (typeof window.pauseAllCarousels === 'function') window.pauseAllCarousels(180000);
+  if (typeof window.holdAllCarousels === 'function') window.holdAllCarousels();
   block.innerHTML =
     '<div class="flw-capture">' +
       '<input type="text" id="flw-name-' + tier + '" placeholder="Your full name" autocomplete="name">' +
@@ -1502,6 +1579,7 @@ function showFlwForm(tier, amount, description){
 function hideFlwForm(tier, amount, description){
   var block = document.getElementById('flw-block-' + tier);
   if (!block) return;
+  if (typeof window.releaseAllCarousels === 'function') window.releaseAllCarousels();
   var label = tier === 'taster' ? '$' + amount : '$' + amount + '/mo';
   block.innerHTML = '<button class="pricing-pay" onclick="showFlwForm(\'' + tier + '\',' + amount + ',\'' + description.replace(/'/g,"\\'") + '\')">Pay Now &middot; ' + label + '</button>';
 }
@@ -1537,20 +1615,22 @@ function initFlwPayment(tier, amount, description){
       var block = document.getElementById('flw-block-' + tier);
       var wasSuccessful = data && (data.status === 'successful' || data.status === 'completed');
       var waMsg, waHref;
+      if (typeof window.releaseAllCarousels === 'function') window.releaseAllCarousels();
 
       if (wasSuccessful) {
         flwCompleted[tier] = true;
         if (typeof gtag === 'function') gtag('event', 'purchase', { tier: tier, value: amount, currency: 'USD' });
+        var seats = seatCounts[tier] || 1;
         try {
           if (tier === 'executive') {
-            sendTierCricketsEmail(name, email, FLW_TIER_LABELS[tier]);
+            sendTierCricketsEmail(name, email, FLW_TIER_LABELS[tier], seats, amount);
           } else {
-            sendGeneralConfirmationEmail(name, email, FLW_TIER_LABELS[tier]);
+            sendGeneralConfirmationEmail(name, email, FLW_TIER_LABELS[tier], seats, amount);
           }
         } catch (emailDispatchErr) {
           console.error('Confirmation email dispatch error:', emailDispatchErr);
         }
-        waMsg = "Hi Jennifer, I just paid for the " + FLW_TIER_LABELS[tier] + " tier ($" + amount + "/month). I'm " + name + ", my email is " + email + ". Ready to get started.";
+        waMsg = "Hi Jennifer, I just paid for the " + FLW_TIER_LABELS[tier] + " tier" + (seats > 1 ? (" (" + seats + " profiles)") : "") + " ($" + amount + (tier === 'taster' ? '' : '/month') + "). I'm " + name + ", my email is " + email + ". Ready to get started.";
         waHref = "https://wa.me/2349024680769?text=" + encodeURIComponent(waMsg);
         if (block) {
           block.innerHTML =
@@ -1595,6 +1675,7 @@ function initFlwPayment(tier, amount, description){
       }
     },
     onclose: function(){
+      if (typeof window.releaseAllCarousels === 'function') window.releaseAllCarousels();
       if (!flwCompleted[tier] && typeof gtag === 'function') {
         gtag('event', 'checkout_abandoned', { tier: tier, value: amount, currency: 'USD' });
       }
@@ -1631,10 +1712,16 @@ function initFlwPayment(tier, amount, description){
   window.pauseAllCarousels = function(ms){
     for (var k in carousels) { carousels[k].pausedUntil = Date.now() + ms; }
   };
+  window.holdAllCarousels = function(){
+    for (var k in carousels) { carousels[k].held = true; }
+  };
+  window.releaseAllCarousels = function(){
+    for (var k in carousels) { carousels[k].held = false; carousels[k].pausedUntil = Date.now() + 1000; }
+  };
   function initCarousel(id){
     var track = document.getElementById(id);
     if (!track) return;
-    var state = { pausedUntil: 0, dir: 1 };
+    var state = { pausedUntil: 0, dir: 1, held: false };
     carousels[id] = state;
 
     function cardWidth(){
@@ -1648,6 +1735,7 @@ function initFlwPayment(tier, amount, description){
       track.scrollBy({ left: n * cardWidth(), behavior: 'smooth' });
     }
     function autoAdvance(){
+      if (state.held) return;
       if (Date.now() < state.pausedUntil) return;
       var maxScroll = track.scrollWidth - track.clientWidth;
       if (maxScroll <= 4) return;
@@ -1660,7 +1748,7 @@ function initFlwPayment(tier, amount, description){
     }
     setInterval(autoAdvance, 4200);
 
-    function pause(){ state.pausedUntil = Date.now() + 6000; }
+    function pause(){ state.pausedUntil = Date.now() + 120000; }
 
     var isDown = false, startX = 0, startScroll = 0, moved = false;
     track.addEventListener('pointerdown', function(e){
@@ -1668,6 +1756,7 @@ function initFlwPayment(tier, amount, description){
       startX = e.clientX;
       startScroll = track.scrollLeft;
       track.setPointerCapture(e.pointerId);
+      pause();
     });
     track.addEventListener('pointermove', function(e){
       if (!isDown) return;
@@ -1678,7 +1767,7 @@ function initFlwPayment(tier, amount, description){
     function endDrag(){
       if (!isDown) return;
       isDown = false;
-      if (moved) pause();
+      pause();
     }
     track.addEventListener('pointerup', endDrag);
     track.addEventListener('pointerleave', endDrag);
