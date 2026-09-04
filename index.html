@@ -322,7 +322,7 @@ section{padding:104px 0;position:relative;}
 .seat-btn{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--brass-bright);font-family:'DM Mono',monospace;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,color 0.2s;}
 .seat-btn:hover{border-color:var(--brass);color:var(--brass);}
 .seat-btn:disabled{opacity:0.35;cursor:not-allowed;}
-.seat-count{font-family:'DM Mono',monospace;font-size:13px;color:var(--parchment);min-width:14px;text-align:center;}
+.seat-count{font-family:'DM Mono',monospace;font-size:13px;color:var(--parchment);width:34px;text-align:center;background:transparent;border:1px solid var(--line);border-radius:2px;padding:3px 2px;-moz-appearance:textfield;}.seat-count::-webkit-outer-spin-button,.seat-count::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
 .flw-block{margin-top:0;}
 .flw-capture{display:flex;flex-direction:column;gap:8px;}
 .flw-capture input{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:3px;padding:11px 12px;color:var(--parchment);font-size:13px;}
@@ -709,7 +709,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <p class="pricing-who">For the founder who wants one honest expert to diagnose what's broken before committing to a retainer.</p>
           <p class="pricing-price" id="price-taster"><sup>$</sup>100</p>
           <span class="pricing-cadence">One-time investment</span>
-          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('taster',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-taster">1</span><button type="button" class="seat-btn" onclick="changeSeats('taster',1)" aria-label="Increase profiles">&plus;</button></div></div>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('taster',-1)" aria-label="Decrease profiles">&minus;</button><input type="number" class="seat-count" id="seat-count-taster" value="1" min="1" max="500" inputmode="numeric" onchange="setSeats('taster',this.value)" onblur="setSeats('taster',this.value)"><button type="button" class="seat-btn" onclick="changeSeats('taster',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>Full LinkedIn profile audit</li>
@@ -728,7 +728,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <p class="pricing-who">For the founder ready to show up consistently who doesn't have time to write in their own voice every month.</p>
           <p class="pricing-price" id="price-starter"><sup>$</sup>200</p>
           <span class="pricing-cadence">Per month</span>
-          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('starter',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-starter">1</span><button type="button" class="seat-btn" onclick="changeSeats('starter',1)" aria-label="Increase profiles">&plus;</button></div></div>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('starter',-1)" aria-label="Decrease profiles">&minus;</button><input type="number" class="seat-count" id="seat-count-starter" value="1" min="1" max="500" inputmode="numeric" onchange="setSeats('starter',this.value)" onblur="setSeats('starter',this.value)"><button type="button" class="seat-btn" onclick="changeSeats('starter',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>8 posts a month, in your voice</li>
@@ -746,7 +746,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <p class="pricing-who">For the founder who's tried posting, got some traction, and can't yet crack consistency or conversion.</p>
           <p class="pricing-price" id="price-growth"><sup>$</sup>400</p>
           <span class="pricing-cadence">Per month</span>
-          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('growth',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-growth">1</span><button type="button" class="seat-btn" onclick="changeSeats('growth',1)" aria-label="Increase profiles">&plus;</button></div></div>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('growth',-1)" aria-label="Decrease profiles">&minus;</button><input type="number" class="seat-count" id="seat-count-growth" value="1" min="1" max="500" inputmode="numeric" onchange="setSeats('growth',this.value)" onblur="setSeats('growth',this.value)"><button type="button" class="seat-btn" onclick="changeSeats('growth',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>12 posts a month</li>
@@ -765,7 +765,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <p class="pricing-who">For the founder serious about being known in their industry, who wants someone thinking about their positioning full time.</p>
           <p class="pricing-price" id="price-authority"><sup>$</sup>600</p>
           <span class="pricing-cadence">Per month</span>
-          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('authority',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-authority">1</span><button type="button" class="seat-btn" onclick="changeSeats('authority',1)" aria-label="Increase profiles">&plus;</button></div></div>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('authority',-1)" aria-label="Decrease profiles">&minus;</button><input type="number" class="seat-count" id="seat-count-authority" value="1" min="1" max="500" inputmode="numeric" onchange="setSeats('authority',this.value)" onblur="setSeats('authority',this.value)"><button type="button" class="seat-btn" onclick="changeSeats('authority',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>16 posts a month, written in your voice</li>
@@ -784,7 +784,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <p class="pricing-who">For the founder who can't afford to be invisible. Maximum access to Jennifer. Limited to 3 clients.</p>
           <p class="pricing-price" id="price-vip"><sup>$</sup>800</p>
           <span class="pricing-cadence">Per month</span>
-          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('vip',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-vip">1</span><button type="button" class="seat-btn" onclick="changeSeats('vip',1)" aria-label="Increase profiles">&plus;</button></div></div>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('vip',-1)" aria-label="Decrease profiles">&minus;</button><input type="number" class="seat-count" id="seat-count-vip" value="1" min="1" max="500" inputmode="numeric" onchange="setSeats('vip',this.value)" onblur="setSeats('vip',this.value)"><button type="button" class="seat-btn" onclick="changeSeats('vip',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>20 posts plus a monthly newsletter</li>
@@ -804,7 +804,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 40px;}
           <p class="pricing-who">For the founder building a legacy, not just a company. Maximum output. Limited to 2 clients.</p>
           <p class="pricing-price" id="price-executive"><sup>$</sup>1,000</p>
           <span class="pricing-cadence">Per month</span>
-          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('executive',-1)" aria-label="Decrease profiles">&minus;</button><span class="seat-count" id="seat-count-executive">1</span><button type="button" class="seat-btn" onclick="changeSeats('executive',1)" aria-label="Increase profiles">&plus;</button></div></div>
+          <div class="seat-selector"><span class="seat-label">Profiles</span><div class="seat-controls"><button type="button" class="seat-btn" onclick="changeSeats('executive',-1)" aria-label="Decrease profiles">&minus;</button><input type="number" class="seat-count" id="seat-count-executive" value="1" min="1" max="500" inputmode="numeric" onchange="setSeats('executive',this.value)" onblur="setSeats('executive',this.value)"><button type="button" class="seat-btn" onclick="changeSeats('executive',1)" aria-label="Increase profiles">&plus;</button></div></div>
           <div class="pricing-rule"></div>
           <ul class="pricing-features">
             <li>25 posts, 2 newsletters, 1 blog article a month</li>
@@ -1430,44 +1430,83 @@ var TIER_WA_TEXT = {
   vip:'the VIP tier',
   executive:'the Executive tier'
 };
-var MAX_SEATS = 10;
+var MAX_SEATS = 50;
+var CONTACT_SALES_THRESHOLD = 5000;
 var seatCounts = {taster:1,starter:1,growth:1,authority:1,vip:1,executive:1};
 
-function changeSeats(tier, delta){
+function applySeats(tier, next){
   var base = TIER_BASE_PRICE[tier];
   if (!base) return;
-  var next = (seatCounts[tier] || 1) + delta;
-  if (next < 1) next = 1;
+  if (isNaN(next) || next < 1) next = 1;
   if (next > MAX_SEATS) next = MAX_SEATS;
+  next = Math.round(next);
   seatCounts[tier] = next;
 
   var countEl = document.getElementById('seat-count-' + tier);
-  if (countEl) countEl.textContent = next;
+  if (countEl) countEl.value = next;
 
   var total = base * next;
   var priceEl = document.getElementById('price-' + tier);
-  if (priceEl) priceEl.innerHTML = '<sup>$</sup>' + total.toLocaleString();
-
-  var desc = next > 1 ? (TIER_DESCRIPTIONS[tier] + ', ' + next + ' Profiles') : TIER_DESCRIPTIONS[tier];
-  var payBtn = document.querySelector('#flw-block-' + tier + ' .pricing-pay');
-  if (payBtn) {
-    var label = tier === 'taster' ? ('$' + total.toLocaleString()) : ('$' + total.toLocaleString() + '/mo');
-    payBtn.setAttribute('onclick', "showFlwForm('" + tier + "'," + total + ",'" + desc.replace(/'/g,"\\'") + "')");
-    payBtn.textContent = 'Pay Now \u00b7 ' + label;
+  var overThreshold = total > CONTACT_SALES_THRESHOLD;
+  if (priceEl) {
+    var estTag = overThreshold ? '<span style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--parchment-faint);letter-spacing:0.05em;text-transform:uppercase;vertical-align:middle;margin-right:4px;">Est.</span>' : '';
+    priceEl.innerHTML = estTag + '<sup>$</sup>' + total.toLocaleString();
   }
 
-  var ctaLink = document.querySelector('#flw-block-' + tier).closest('.pricing-card').querySelector('.pricing-cta');
+  var desc = next > 1 ? (TIER_DESCRIPTIONS[tier] + ', ' + next + ' Profiles') : TIER_DESCRIPTIONS[tier];
+  var seatPhrase = next > 1 ? (next + ' profiles on ') : '';
+  var priceLabel = tier === 'taster' ? ('$' + total.toLocaleString()) : ('$' + total.toLocaleString() + ' per month');
+  var flwBlock = document.getElementById('flw-block-' + tier);
+  var payBtn = flwBlock ? flwBlock.querySelector('.pricing-pay') : null;
+
+  if (payBtn) {
+    if (overThreshold) {
+      var salesMsg = 'Hi Jennifer, I would like to discuss agency pricing for ' + next + ' profiles on ' + TIER_WA_TEXT[tier] + ', roughly ' + priceLabel + ' at standard rates. Can we talk?';
+      var salesHref = 'https://wa.me/2349024680769?text=' + encodeURIComponent(salesMsg);
+      if (payBtn.tagName === 'A') {
+        payBtn.href = salesHref;
+      } else {
+        var salesLink = document.createElement('a');
+        salesLink.className = 'pricing-pay';
+        salesLink.href = salesHref;
+        salesLink.target = '_blank';
+        salesLink.rel = 'noopener noreferrer';
+        payBtn.replaceWith(salesLink);
+        payBtn = salesLink;
+      }
+      payBtn.textContent = 'Talk to Jennifer About Pricing';
+    } else {
+      var label = tier === 'taster' ? ('$' + total.toLocaleString()) : ('$' + total.toLocaleString() + '/mo');
+      if (payBtn.tagName === 'A') {
+        var payButton = document.createElement('button');
+        payButton.className = 'pricing-pay';
+        payButton.type = 'button';
+        payBtn.replaceWith(payButton);
+        payBtn = payButton;
+      }
+      payBtn.setAttribute('onclick', "showFlwForm('" + tier + "'," + total + ",'" + desc.replace(/'/g,"\\'") + "')");
+      payBtn.textContent = 'Pay Now \u00b7 ' + label;
+    }
+  }
+
+  var ctaLink = flwBlock ? flwBlock.closest('.pricing-card').querySelector('.pricing-cta') : null;
   if (ctaLink) {
-    var seatPhrase = next > 1 ? (next + ' profiles on ') : '';
-    var priceLabel = tier === 'taster' ? ('$' + total.toLocaleString()) : ('$' + total.toLocaleString() + ' per month');
     var waMsg = 'Hi Jennifer, I am interested in ' + seatPhrase + TIER_WA_TEXT[tier] + ' at ' + priceLabel + '. Can we discuss?';
     ctaLink.href = 'https://wa.me/2349024680769?text=' + encodeURIComponent(waMsg);
   }
 
-  var decBtns = document.querySelectorAll('#seat-count-' + tier);
-  if (decBtns.length && decBtns[0].previousElementSibling) {
-    decBtns[0].previousElementSibling.disabled = (next <= 1);
-  }
+  var minusBtn = countEl ? countEl.previousElementSibling : null;
+  if (minusBtn) minusBtn.disabled = (next <= 1);
+}
+
+function changeSeats(tier, delta){
+  var next = (seatCounts[tier] || 1) + delta;
+  applySeats(tier, next);
+}
+
+function setSeats(tier, rawValue){
+  var next = parseInt(rawValue, 10);
+  applySeats(tier, next);
 }
 
 /* ============ EMAILJS: CLIENT CONFIRMATION EMAILS ============ */
